@@ -1,0 +1,88 @@
+.NavBar-container {
+  width: 1440px;
+  height: 110px;
+  position: absolute;
+  padding-right: 0px;
+  background-size: cover;
+  background-repeat: repeat;
+  background-image: url("../../public/mainpage/stat_bg.png");
+}
+
+.NavBar-logo {
+  width: 85px;
+  height: 85px;
+  position: absolute;
+  margin: 10px 0px 0px 30px;
+  background-size: contain;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-image: url("../../public/mainpage/logo.png");
+}
+
+.NavBar-title {
+  color: var(--pku);
+  font-size: 24px;
+  margin: var(--m);
+}
+
+.NavBar-linkContainer {
+  width: 60%;
+  height: 50%;
+  max-width: 100%;
+  position: absolute;
+  margin: 29px 0px 0px 328px;
+}
+
+.NavBar-link-welcome,
+.NavBar-link-welcome:visited {
+  width: 195px;
+  height: 52px;
+  background-size: contain;
+  display: block;
+  background-repeat: no-repeat;
+  background-image: url("../../public/mainpage/welcome.png");
+}
+
+.NavBar-link-group,
+.NavBar-link-group:visited {
+  width: 195px;
+  height: 52px;
+  margin-left: 53px;
+  background-size: contain;
+  display: block;
+  background-repeat: no-repeat;
+  background-image: url("../../public/mainpage/group.png");
+}
+
+.NavBar-link-myacc,
+.NavBar-link-myacc:visited {
+  width: 195px;
+  height: 52px;
+  margin-left: 53px;
+  background-size: contain;
+  display: block;
+  background-repeat: no-repeat;
+  background-image: url("../../public/mainpage/myacc.png");
+}
+
+.NavBar-link-login,
+.NavBar-link-login:visited {
+  width: 195px;
+  height: 52px;
+  margin-left: 53px;
+  background-size: contain;
+  display: block;
+  background-repeat: no-repeat;
+  background-image: url("../../public/mainpage/login.png");
+}
+
+.NavBar-link-contact,
+.NavBar-link-contact:visited {
+  width: 52px;
+  height: 52px;
+  margin-left: 100px;
+  background-size: contain;
+  display: block;
+  background-repeat: no-repeat;
+  background-image: url("../../public/mainpage/contact.png");
+}

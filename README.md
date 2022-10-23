@@ -1,12 +1,58 @@
-# 2022SE_Group1
-PKU软工大作业组1
-## 项目内容
-课程大作业等组队需求的登记与交流，按情况增加旧书交易的功能，最后形成一个同学们学业内或生活中信息共享的平台
-## 实现平台
-Web
-## 预定计划
-第二阶段（9.27-11.3）、第三阶段（11.3-11.10）：需要完成基本功能，主要为用户可以注册、登录，在网站上发帖子，或者对帖子回复；分为前端、后端开发
+# pku-info
 
-第四阶段（11.10-12.1）：在工期比较宽裕的情况下，增加用户之间的私聊功能、旧书交易功能；进行前端、后端、前后端接口测试
+基于MIt课程项目catbook-react
 
-第五阶段（12.1-12.8）：bug修复、界面美化、功能优化等细节
+## start up
+
+run `npm start` in one terminal and `npm run hotloader` in another
+
+visit `http://localhost:5000`
+
+## don't touch
+
+the following files students do not need to edit. feel free to read them if you would like.
+
+```
+client/dist/index.html
+client/src/index.js
+client/src/utilities.js
+server/validator.js
+.babelrc
+.npmrc
+.prettierrc
+package-lock.json
+webpack.config.js
+```
+
+## 文件结构
+
+### `./client`
+
+客户端部分代码
+
+#### `./client/src`
+
+`./client/src/public` 包含图片资源
+
+`./client/src/components` 包含前端网页源代码
+
+### `./node_modules`
+
+react的依赖库
+
+### `./server`
+
+后端服务器代码
+
+
+## 客户端部分
+
+`index.html`是网页的html，可以修改其中的head部分，body部分由react自动组织`./client/src/components`下的文件生成bundle.js来实现。要修改前端body，应该修改`./client/src/components`下的内容，以下叙述此目录下的文件、子目录。
+
+`App.js`展示了网页html的基础内容，构架是将整个网页划分为导航栏/内容两部分，内容由router包进行导航，来分别显示主页/组队页/登录页面等。这些内容页面实现在`./pages`中。
+
+`./pages`中的每个网页又被划分为一定的模块，模块实现在`./modules`中。
+
+## 服务器部分
+
+`server.js`是服务器的主体代码，`api.js`是服务器接口代码。

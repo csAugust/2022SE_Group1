@@ -1,0 +1,27 @@
+.Mainpage-container {
+    width: 1440px;
+    height: 914px;
+}
+
+.Mainpage-title {
+    width: 784px;
+    height: 123px;
+    position: absolute;
+    margin: 325px 328px 466px 328px;
+    background-position-y: center;
+    background-position-x: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("../../public/mainpage/title.png");
+}
+
+.Mainpage-status {
+    width: 1440px;
+    height: 79px;
+    position: absolute;
+    margin: 835px 0px 0px 0px;
+    padding-right: 0px;
+    background-size: contain;
+    background-repeat: repeat;
+    background-image: url("../../public/mainpage/bottom_info.png");
+}
