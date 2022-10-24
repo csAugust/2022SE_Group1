@@ -14,6 +14,7 @@ import Feed from "./pages/Feed.js";
 import NotFound from "./pages/NotFound.js";
 import Profile from "./pages/Profile.js";
 import Mainpage from "./pages/Mainpage.js";
+import Login from "./pages/Login.js";
 
 // to use styles, import the necessary CSS files
 import "../utilities.css";
@@ -36,6 +37,7 @@ const App = () => {
           <Mainpage path="/" />
           <Feed path="/feed" />
           <Profile path="/profile/" />
+          <Login path="/login" />
           <NotFound default />
         </Router>
       </div>
