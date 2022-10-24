@@ -15,6 +15,7 @@ import NotFound from "./pages/NotFound.js";
 import Profile from "./pages/Profile.js";
 import Mainpage from "./pages/Mainpage.js";
 import Login from "./pages/Login.js";
+import Register from "./pages/Register.js";
 
 // to use styles, import the necessary CSS files
 import "../utilities.css";
@@ -38,6 +39,7 @@ const App = () => {
           <Feed path="/feed" />
           <Profile path="/profile/" />
           <Login path="/login" />
+          <Register path="/register" />
           <NotFound default />
         </Router>
       </div>

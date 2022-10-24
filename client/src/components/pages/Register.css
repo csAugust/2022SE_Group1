@@ -1,9 +1,9 @@
-.Login-container {
+.Register-container {
     width: 1440px;
     height: 914px;
 }
 
-.Login-logo {
+.Register-logo {
     width:  81px;
     height: 81px;
     position: absolute;
@@ -15,31 +15,19 @@
     background-image: url("../../public/login/contact2.png");
 }
 
-.Login-login_botton {
+.Register-Register_botton {
     width:  173px;
     height: 63px;
     position: absolute;
-    margin: 560px 654px 401px 613px;
+    margin: 665px 654px 296px 613px;
     background-position-y: center;
     background-position-x: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url("../../public/login/login_botton.png");
+    background-image: url("../../public/login/Register_botton.png");
 }
 
-.Login-register {
-    width:  406px;
-    height: 43px;
-    position: absolute;
-    margin: 647px 530px 334px 504px;
-    background-position-y: center;
-    background-position-x: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-image: url("../../public/login/register.png");
-}
-
-.Login-status {
+.Register-status {
     width: 1440px;
     height: 79px;
     position: absolute;
@@ -50,7 +38,7 @@
     background-image: url("../../public/mainpage/bottom_info.png");
 }
 
-input[type=text].log{
+input[type=text].regi{
     width:  556px;
     height: 57px;
     position: absolute;
@@ -61,11 +49,22 @@ input[type=text].log{
     box-sizing: border-box;
 }
 
-input[type=password].log{
+input[type=password].first{
     width:  556px;
     height: 57px;
     position: absolute;
     margin: 455px 453px 512px 432px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=password].second{
+    width:  556px;
+    height: 57px;
+    position: absolute;
+    margin: 560px 453px 407px 432px;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;

@@ -6,10 +6,10 @@ const Login = () => {
     return (
       <div className="Login-container">
         <div className="Login-logo"/>
-        <input type="text" id="Username" name="Username" placeholder="Username.."></input>
-        <input type="password" id="pwd" name="pwd" placeholder="Password.."></input>
+        <input type="text" class="log" id="Username" name="Username" placeholder="Username.."></input>
+        <input type="password" class="log" id="pwd" name="pwd" placeholder="Password.."></input>
         <div className="Login-login_botton"/>
-        <Link to="/" className="Login-register"/>
+        <Link to="/register" className="Login-register"/>
         <div className="Login-status"/>
       </div>
     );
