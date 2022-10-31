@@ -13,6 +13,10 @@ const SingleStory = (props) => {
     <div className="Card-story">
       <span className="u-bold">{props.creator_name}</span>
       <p className="Card-storyContent">{props.content}</p>
+      <span className="u-bold">{props.CourseName}</span>
+      <span className="u-bold">{props.MembersNum}</span>
+      <span className="u-bold">{props.PersonalProfile}</span>
+      <span className="u-bold">{props.TeamName}</span>
     </div>
   );
 };

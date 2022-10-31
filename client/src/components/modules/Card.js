@@ -30,8 +30,15 @@ const Card = (props) => {
 
   return (
     <div className="Card-container">
-      <SingleStory _id={props._id} creator_name={props.creator_name} content={props.content} />
-      <CommentsBlock story={props} comments={comments} addNewComment={addNewComment} />
+      <SingleStory CourseName={props.CourseName}
+                   MembersNum={props.MembersNum}
+                   PersonalProfile={props.PersonalProfile}
+                   TeamName={props.TeamName}
+                   creator_name={props.creator_name}
+                   content={props.content} />
+      <CommentsBlock story={props}
+                     comments={comments}
+                     addNewComment={addNewComment} />
     </div>
   );
 };

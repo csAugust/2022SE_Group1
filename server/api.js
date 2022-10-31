@@ -15,7 +15,11 @@ const data = {
     {
       _id: 0,
       creator_name: "Alice",
-      content: "Anyone for software engineering course's group?"
+      content: "Anyone for software engineering course's group?",
+      CourseName:"软件工程",
+      MembersNum:"5",
+      PersonalProfile:"熟悉python,js,css,html",
+      TeamName:"crown"
     }
   ],
   comments: [
@@ -52,6 +56,10 @@ router.post("/story", (req, res) => {
     _id: data.stories.length,
     creator_name: MY_NAME,
     content: req.body.content,
+    CourseName:req.body.CourseName,
+    MembersNum:req.body.MembersNum,
+    PersonalProfile:req.body.PersonalProfile,
+    TeamName:req.body.TeamName,
   };
 
   data.stories.push(newStory);
