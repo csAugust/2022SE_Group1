@@ -70,6 +70,11 @@ router.post("/comment", (req, res) => {
   res.send(newComment);
 });
 
+router.post("/login", (req, res) => {
+  console.log(req.body.username);
+  console.log(req.body.password);
+});
+
 // similar to our other catch all route in server.js,
 // let's add a backup route for bad /api routes
 router.all("*", (req, res) => {
