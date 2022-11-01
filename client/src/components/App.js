@@ -16,6 +16,7 @@ import Profile from "./pages/Profile.js";
 import Mainpage from "./pages/Mainpage.js";
 import Login from "./pages/Login.js";
 import Register from "./pages/Register.js";
+import Myacc from "./pages/Myacc.js";
 
 // to use styles, import the necessary CSS files
 import "../utilities.css";
@@ -40,6 +41,7 @@ const App = () => {
           <Profile path="/profile/" />
           <Login path="/login" />
           <Register path="/register" />
+          <Myacc path="/myacc" />
           <NotFound default />
         </Router>
       </div>

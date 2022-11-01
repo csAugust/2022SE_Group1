@@ -13,9 +13,9 @@ const NavBar = () => {
       <div className="NavBar-linkContainer u-flex">
         <Link to="/" className="NavBar-link-welcome"/>
         <Link to="/feed" className="NavBar-link-group"/>
-        <Link to="/" className="NavBar-link-myacc"/>
+        <Link to="/myacc" className="NavBar-link-myacc"/>
         <Link to="/login" className="NavBar-link-login"/>
-        <Link to="/profile/" className="NavBar-link-contact"/>
+        <Link to="/" className="NavBar-link-contact"/>
       </div>
     </nav>
   );

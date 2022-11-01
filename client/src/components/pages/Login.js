@@ -20,7 +20,7 @@ const Login = () => {
     const body = { username: name , password: pwd};
     post("/api/login", body).then((answer) => {
       if(answer.result == "OK")
-        window.location.replace("/feed");
+        window.location.replace("/myacc");
       else
         window.alert("Wrong password!");
     });
