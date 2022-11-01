@@ -10,6 +10,10 @@
 // without a system for users, we'll have to hardcode our user name
 const MY_NAME = "Test User";
 
+const usermap = new Map();
+usermap.set("afsaff","123123");
+
+
 const data = {
   stories: [
     {
@@ -71,8 +75,14 @@ router.post("/comment", (req, res) => {
 });
 
 router.post("/login", (req, res) => {
-  console.log(req.body.username);
-  console.log(req.body.password);
+  if(req.body.password == usermap.get(req.body.username)){
+    console.log("OK");
+    res.send({result : "OK"});
+  }
+  else{
+    console.log("Wrong pwd");
+    res.send({result : "Wrong"});
+  }
 });
 
 // similar to our other catch all route in server.js,

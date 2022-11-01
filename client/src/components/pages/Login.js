@@ -18,8 +18,12 @@ const Login = () => {
   const handleLogin = (event) => {
     event.preventDefault();
     const body = { username: name , password: pwd};
-    post("/api/login", body).then();
-    setName("");
+    post("/api/login", body).then((answer) => {
+      if(answer.result == "OK")
+        window.location.replace("/feed");
+      else
+        window.alert("Wrong password!");
+    });
   };
 
   return (
