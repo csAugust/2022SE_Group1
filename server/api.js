@@ -85,6 +85,18 @@ router.post("/login", (req, res) => {
   }
 });
 
+router.post("/register", (req, res) => {
+  if(usermap.has(req.body.username) == false){
+    usermap.set(req.body.username,req.body.password);
+    console.log("Register Done");
+    res.send({result : "OK"});
+  }
+  else{
+    console.log("Already Exist");
+    res.send({result : "Wrong"});
+  }
+});
+
 // similar to our other catch all route in server.js,
 // let's add a backup route for bad /api routes
 router.all("*", (req, res) => {
