@@ -23,14 +23,17 @@ const Register = () => {
 
   const handleRegister = (event) => {
     event.preventDefault();
-    if(pwd != pwd2) window.alert("Wrong password!");
+    if(pwd != pwd2) 
+      window.alert("输入的两次密码不一致");
+    else if(pwd =="" || name == "")
+    window.alert("不能使用空白用户名/密码");
     else{
       const body = { username: name , password: pwd};
       post("/api/register", body).then((answer) => {
         if(answer.result == "OK")
           window.location.replace("/myacc");
         else
-          window.alert("Already exist");
+          window.alert("该用户已存在");
       });
     }
   };

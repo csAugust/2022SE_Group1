@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "@reach/router";
 import "./Login.css";
 import { post } from "../../utilities";
+import "../../utilities";
 
 const Login = () => {
   const [name, setName] = useState("");
@@ -19,10 +20,12 @@ const Login = () => {
     event.preventDefault();
     const body = { username: name , password: pwd};
     post("/api/login", body).then((answer) => {
-      if(answer.result == "OK")
+      if(answer.result == "OK"){
         window.location.replace("/myacc");
+        global.user.name = name;
+      }
       else
-        window.alert("Wrong password!");
+        window.alert("密码错误!");
     });
   };
 
