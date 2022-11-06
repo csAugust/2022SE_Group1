@@ -1,0 +1,132 @@
+.TeamUp-container {
+
+}
+
+.HintInfo {
+    font-size: xx-large;
+    font-style: italic;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    align-content: center;
+    position: absolute;
+    top: 150px;
+    left: 600px;
+}
+
+.easter_egg1 {
+    background: linear-gradient(to right, rgb(239, 255, 19), rgb(251, 0, 0) 50%, rgb(255, 255, 255) 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    background-position: 100%;
+    transition: background-position 400ms ease;
+}
+
+.easter_egg1:hover {
+    background-position: 0 100%;
+}
+
+.col-xl-4 {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.d-flex {
+    display: -ms-flexbox !important;
+    display: flex !important
+}
+
+
+.creator-name {
+    /* Cherry blossom Seoul tour */
+    position: absolute;
+    width: 56px;
+    height: 26px;
+    top: 0px;
+    left: 20px;
+
+
+    color: rgb(0, 0, 0);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 34px;
+    letter-spacing: 0%;
+    text-align: left;
+
+
+}
+
+.TeamPost {
+    /* Rectangle 11 */
+    position: absolute;
+    width: 938px;
+    height: 347px;
+    top: 272px;
+    left: 20%;
+    vertical-align: center;
+
+    background: rgb(255, 255, 255);
+    /* Shadow */
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);;
+    border-radius: 12px;
+}
+
+.course-name
+.members-num
+.personal-profile
+.content {
+    /* Cherry blossom Seoul tour */
+    position: absolute;
+    width: 241px;
+    height: 26px;
+    top: 355px;
+    left: 20px;
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 26px;
+    letter-spacing: 0%;
+    text-align: left;
+
+}
+
+.comment-input {
+    /* input */
+    position: absolute;
+    width: 690px;
+    height: 46px;
+    top: auto;
+    left: 0;
+    box-sizing: border-box;
+    display: flex;
+
+    border: 1px solid rgb(220, 223, 229);
+}
+
+.comment-button {
+    /* Path */
+    border-color: white;
+    position: absolute;
+    width: 153px;
+    height: 46px;
+    top: auto;
+    right: 20px;
+    /*justify-content: flex-start;*/
+
+    background: rgb(25, 137, 250);
+    border-radius: 4px;
+}
+
+.join-button {
+    border-color: white;
+    position: absolute;
+    width: 47px;
+    height: 46px;
+    top: 0px;
+    left: 878px;
+    background-image: url("../../public/teamup/joinbutton.png");
+}

@@ -2,13 +2,13 @@ import React from "react";
 
 /**
  * 用户评论
- *
  * Proptypes
+ * @typedef comment
  * @param {string} _id 评论所在组队帖子编号
  * @param {string} creator_name 评论者用户名
  * @param {string} content 评论内容
  */
-const SingleComment = (props) => {
+const TeamSingleComment = (props) => {
   return (
     <div className="Card-commentBody">
       <span className="u-bold">{props.creator_name}</span>
@@ -17,4 +17,4 @@ const SingleComment = (props) => {
   );
 };
 
-export default SingleComment;
+export default TeamSingleComment;

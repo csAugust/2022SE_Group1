@@ -13,7 +13,7 @@ const Feed = () => {
   useEffect(() => {
     document.title = "News Feed";
     get("/api/stories").then((storyObjs) => {
-      let reversedStoryObjs = storyObjs.reverse();
+      let reversedStoryObjs = storyObjs;
       setStories(reversedStoryObjs);
     });
   }, []);

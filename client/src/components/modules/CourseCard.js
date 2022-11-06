@@ -22,11 +22,12 @@ const CourseCard = (props) => {
   // post gets added to the screen right away
   const addNewComment = (commentObj) => {
     setComments(comments.concat([commentObj]));
+
   };
 
   return (
     <div className="Card-container">
-      <SingleStory _id={props._id} creator_name={props.creator_name} content={props.content} />
+      <SingleStory _id={props._id} creator_name={props.creator_name} content={props.content} course_name={props.CourseName} />
       <CommentsBlock story={props} comments={comments} addNewComment={addNewComment} />
     </div>
   );

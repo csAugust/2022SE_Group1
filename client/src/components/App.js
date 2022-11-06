@@ -16,10 +16,13 @@ import Profile from "./pages/Profile.js";
 import Mainpage from "./pages/Mainpage.js";
 import Login from "./pages/Login.js";
 import Register from "./pages/Register.js";
+import TeamUp from "./pages/TeamUp.js"
 
 // to use styles, import the necessary CSS files
 import "../utilities.css";
 import "./App.css";
+import TeamPost from "./modules/TeamPost";
+import TeamUpPost from "./pages/TeamUpPost";
 
 /**
  * Define the "App" component as a function.
@@ -37,6 +40,8 @@ const App = () => {
         <Router>
           <Mainpage path="/" />
           <Feed path="/feed" />
+          <TeamUp path="/teamup"/>
+          <TeamUpPost path="/teampost"/>
           <Profile path="/profile/" />
           <Login path="/login" />
           <Register path="/register" />
