@@ -7,7 +7,7 @@
  * Notfound: 404页面
  */
 
-import React from "react";
+import React,{ useState, useEffect } from "react";
 import NavBar from "./modules/NavBar.js";
 import { Router } from "@reach/router";
 import Feed from "./pages/Feed.js";
@@ -28,18 +28,19 @@ import "./App.css";
 const App = () => {
   // required method: whatever is returned defines what
   // shows up on screen
-
+  const [login, setLogin] = useState(false);
+  const loginSwitch = () => setLogin(true);
   return (
     // <> is like a <div>, but won't show
     // up in the DOM tree
     <>
-      <NavBar />
+      <NavBar logstate={login}/>
       <div className="App-container">
         <Router>
           <Mainpage path="/" />
           <Feed path="/feed" />
           <Profile path="/profile/" />
-          <Login path="/login" />
+          <Login path="/login" onlogin={loginSwitch}/>
           <Register path="/register" />
           <Myacc path="/myacc" />
           <NotFound default />

@@ -4,7 +4,7 @@ import "./Login.css";
 import { post } from "../../utilities";
 import "../../utilities";
 
-const Login = () => {
+const Login = (props) => {
   const [name, setName] = useState("");
   const [pwd, setPwd] = useState("");
 
@@ -21,8 +21,9 @@ const Login = () => {
     const body = { username: name , password: pwd};
     post("/api/login", body).then((answer) => {
       if(answer.result == "OK"){
-        window.location.replace("/myacc");
+        //window.location.replace("/myacc");
         global.user.name = name;
+        props.onlogin();
       }
       else
         window.alert("密码错误!");
