@@ -1,12 +1,12 @@
 import React from "react";
 
 /**
- * 用户评论
+ * Component to render a single comment
  *
  * Proptypes
- * @param {string} _id 评论所在组队帖子编号
- * @param {string} creator_name 评论者用户名
- * @param {string} content 评论内容
+ * @param {string} _id of comment
+ * @param {string} creator_name
+ * @param {string} content of the comment
  */
 const SingleComment = (props) => {
   return (

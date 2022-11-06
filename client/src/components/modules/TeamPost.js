@@ -1,6 +1,10 @@
-import React from "react";
-
-
+import React, {useEffect, useState} from "react";
+import TeamSingleComment from "./TeamSingleComment";
+import TeamCommentsBlock from "./TeamCommentsBlock";
+import TeamSinglePost from "./TeamSinglePost";
+import {get} from "../../utilities";
+import "./TeamPost.css"
+import "../pages/Mainpage.css"
 
 /**
  * 组队申请
@@ -14,14 +18,36 @@ import React from "react";
  */
 
 const TeamPost = (props) => {
+
+    const [comments, setComments] = useState([]);
+
+    useEffect(() => {
+        get("/api/TeamPostComment", {parent: props._id}).then((comments) => {
+            setComments(comments);
+        });
+    }, []);
+
+    const addTeamNewComment = (TeamPostCommentObj) => {
+        setComments(comments.concat([TeamPostCommentObj]));
+    }
+
     return (
-        <div className="Card-TeamPost">
-            <span className="u-bold">{props.creator_name}</span>
-            <p className="Team-Info">{props.course_name}</p>
-            <p className="Team-Info">{props.personal_profile}</p>
-            <p className="Team-Info">{props.members_num}</p>
-            <p className="Team-Info">{props.team_name}</p>
-        </div>
+
+            <div className="TeamPost-container">
+                <TeamSinglePost
+                    _id={props._id}
+                    creator_name={props.creator_name}
+                    content={props.content}
+                    course_name={props.course_name}
+                    personal_profile={props.personal_profile}
+                    members_num={props.members_num}
+                    team_name={props.team_name}
+                ></TeamSinglePost>
+                <TeamCommentsBlock TeamPost={props}
+                                   comments={comments}
+                                   addTeamNewComment={addTeamNewComment}
+                ></TeamCommentsBlock>
+            </div>
     );
 };
 

@@ -1,5 +1,5 @@
 import React from "react";
-
+import "../modules/TeamPost.css"
 /**
  * 用户评论
  * Proptypes
@@ -10,7 +10,7 @@ import React from "react";
  */
 const TeamSingleComment = (props) => {
   return (
-    <div className="Card-commentBody">
+    <div className="TeamPost-commentBody">
       <span className="u-bold">{props.creator_name}</span>
       <span>{" | " + props.content}</span>
     </div>

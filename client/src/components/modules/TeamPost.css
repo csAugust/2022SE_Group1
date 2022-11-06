@@ -1,0 +1,35 @@
+TeamPost-container {
+    border: var(--darkgrey) 1px solid;
+    border-radius: var(--xs);
+    margin-top: var(--m);
+}
+
+TeamPost-container:first-of-type {
+    margin-top: var(--l);
+}
+
+.TeamPost-First{
+    padding: var(--m) var(--l);
+}
+.TeamInfo-commentSection {
+    padding: var(--m) var(--l);
+}
+
+
+.TeamPostContent {
+    font-size: 10px;
+    margin: var(--s) 0 0;
+}
+
+.TeamInfo-commentSection {
+    background-color: var(--grey);
+    border-top: 1px solid var(--darkgrey);
+}
+
+.TeamPost-comments{
+
+}
+
+.TeamPost-commentBody {
+    margin: 0 0 var(--s);
+}

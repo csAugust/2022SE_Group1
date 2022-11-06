@@ -1,7 +1,7 @@
 import React from "react";
 import TeamPost from "./TeamPost.js";
 import TeamSingleComment from "./TeamSingleComment";
-import { NewComment } from "./NewPostInput.js";
+import { NewCommentPost } from "./NewTeamPostInput.js";
 
 /**
  * 用户评论
@@ -27,7 +27,7 @@ import { NewComment } from "./NewPostInput.js";
  * 组队帖子的全部评论
  * Proptypes
  * @param {comment[]} comments
- * @param {TeamPost} story
+ * @param {TeamPost} teampost
  */
 const TeamInfoBlock = (props) => {
   return (
@@ -41,7 +41,7 @@ const TeamInfoBlock = (props) => {
             content={comment.content}
           />
         ))}
-        <NewComment storyId={props.story._id} addNewComment={props.addNewComment} />
+        <NewCommentPost TeampPostId={props.teampost._id} addNewComment={props.addNewComment} />
       </div>
     </div>
   );

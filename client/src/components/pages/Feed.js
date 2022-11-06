@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Card from "../modules/Card.js";
 import { NewStory } from "../modules/NewPostInput.js";
-
 import { get } from "../../utilities";
 import "./Feed.css"
 
@@ -12,12 +11,11 @@ const Feed = () => {
   // when it shows up on screen
   useEffect(() => {
     document.title = "News Feed";
-    get("/api/stories").then((storyObjs) => {
-      let reversedStoryObjs = storyObjs;
+    get("api/stories").then((storyObjs) => {
+      let reversedStoryObjs = storyObjs.reverse();
       setStories(reversedStoryObjs);
     });
   }, []);
-
   // this gets called when the user pushes "Submit", so their
   // post gets added to the screen right away
   const addNewStory = (storyObj) => {
@@ -25,7 +23,7 @@ const Feed = () => {
   };
 
   let storiesList = null;
-  const hasStories = stories.length !== 0;
+  const hasStories = (stories.length !== 0);
   if (hasStories) {
     storiesList = stories.map((storyObj) => (
       <Card
@@ -33,10 +31,6 @@ const Feed = () => {
         _id={storyObj._id}
         creator_name={storyObj.creator_name}
         content={storyObj.content}
-        course_name={storyObj.CourseName}
-        members_num={storyObj.MembersNum}
-        personal_profile={storyObj.PersonalProfile}
-        team_name={storyObj.teamName}
       />
     ));
   } else {

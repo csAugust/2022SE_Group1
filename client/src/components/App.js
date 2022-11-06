@@ -41,7 +41,7 @@ const App = () => {
           <Mainpage path="/" />
           <Feed path="/feed" />
           <TeamUp path="/teamup"/>
-          <TeamUpPost path="/teampost"/>
+          <TeamUpPost path="/teamuppost"/>
           <Profile path="/profile/" />
           <Login path="/login" />
           <Register path="/register" />
