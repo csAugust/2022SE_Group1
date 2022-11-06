@@ -3,7 +3,7 @@ import { Link } from "@reach/router";
 import "./Login.css";
 import { post } from "../../utilities";
 import "../../utilities";
-
+import axios from 'axios';
 const Login = (props) => {
   const [name, setName] = useState("");
   const [pwd, setPwd] = useState("");
@@ -16,18 +16,25 @@ const Login = (props) => {
     setPwd(event.target.value);
   };
 
-  const handleLogin = (event) => {
+  const handleLogin = async (event) => {
     event.preventDefault();
-    const body = { username: name , password: pwd};
-    post("/api/login", body).then((answer) => {
-      if(answer.result == "OK"){
-        //window.location.replace("/myacc");
-        global.user.name = name;
-        props.onlogin();
-      }
-      else
-        window.alert("密码错误!");
-    });
+    let result;
+    let url="http://10.7.7.230:8080/login?email="+name+"&password="+pwd;
+    await axios.get(url)
+      .then((response) => {
+        result=response.data;
+	    })
+    .catch(err => {window.alert(err);});
+    //window.alert(result);
+
+    if(result[0] == "S"){
+      global.user.name = name;
+      props.onlogin();
+      //window.alert("成功!");
+    }
+    else
+      window.alert("密码错误!");
+
   };
 
   return (
