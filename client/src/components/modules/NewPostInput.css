@@ -22,6 +22,7 @@ p {display: inline}
 }
 
 .NewPostInput-button {
+  text-align: center;
   color: var(--primary);
   border: var(--primary) 1px solid;
   border-radius: 0 var(--xs) var(--xs) 0;

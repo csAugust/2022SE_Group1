@@ -3,6 +3,7 @@ import {post} from "../../utilities";
 import TeamPost from "./TeamPost";
 import {Button, Form, Input, Mentions} from "antd";
 import "./NewTeamPostInput.css"
+
 const layout = {
     labelCol: {
         span: 8,
@@ -10,6 +11,7 @@ const layout = {
     wrapperCol: {
         span: 16,
     },
+
 };
 const tailLayout = {
     wrapperCol: {
@@ -31,7 +33,7 @@ const NewTeamPost = (props) => {
             personal_profile: value.PersonalProfile,
             team_name: value.TeamName,
             creator_name: value.Creator_Name,
-            content:"固定一下",
+            content: "固定一下",
         };
         post("api/TeamPost", body).then((teampost) => {
             props.addNewTeamPost(teampost);
@@ -121,7 +123,7 @@ const NewTeamPostInput = (props) => {
             MembersNum: membersnum,
             PersonalProfile: personal,
             TeamName: teamname,
-            Creator_Name: "cbajklbvs",
+            Creator_Name: "TestUser",
 
         };
         props.onSubmit && props.onSubmit(return_value);
@@ -133,78 +135,83 @@ const NewTeamPostInput = (props) => {
     };
 
     return (
-        <div className={"NewTeamPostInput"}>
-            <Form {...layout}>
-                <div className="u-flex">
-                    <Form.Item
-                        name="CourseName"
-                        label="课程名称"
-                        rules={[
-                            {required: true},
-                        ]}>
-                        <Input
+        <div className={"NewTeamPostInput-container"}>
+            <div className={"NewTeamPostInput"}>
+                <Form {...layout}>
+                    <div className={"TeamPostFormItem"}>
+                        <Form.Item
+                            name="CourseName"
+                            label=""
+                            rules={[
+                                {required: true},
+                            ]}>
+                            课程名称：<Input
                             type="text"
                             placeholder={""}
                             value={coursename}
                             onChange={handleCourseNameChange}
-                            className="NewPostInput-input"/>
-                    </Form.Item>
-                    <Form.Item
-                        name="MembersNum"
-                        label="组队人数"
-                        rules={[
-                            {required: true},
-                        ]}>
-                        <Input
+                            className="NewPostInput-input"/><br/>
+                        </Form.Item><br/>
+                        <Form.Item
+                            name="MembersNum"
+                            label=""
+                            rules={[
+                                {required: true},
+                            ]}>
+                            组队人数：<Input
                             type="number"
                             placeholder={""}
                             value={membersnum}
                             onChange={handleMembersNumChange}
                             className="NewPostInput-input"
                         />
-                    </Form.Item>
-                    <Form.Item
-                        name="TeamName"
-                        label="队伍名称"
-                        rules={[
-                            {required: true},
-                        ]}
-                    >
-                        <Input
+                        </Form.Item><br/>
+                        <Form.Item
+                            name="TeamName"
+                            label=""
+                            rules={[
+                                {required: true},
+                            ]}
+                        >
+                            队伍名称：<Input
                             type="text"
                             placeholder={''}
                             value={teamname}
                             onChange={handleTeamNameChange}
                             className="NewPostInput-input"
                         />
-                    </Form.Item>
-                    <Form.Item
-                        name="PersonalInfo"
-                        label="个人简介"
-                        rules={[
-                            {required: false},
-                        ]}
-                    >
-                        <Input
+                        </Form.Item><br/>
+                        <Form.Item
+                            name="PersonalInfo"
+                            label=""
+                            rules={[
+                                {required: false},
+                            ]}
+                        >
+                            个人简介：<Input
                             type="text"
                             placeholder={'选填'}
                             value={personal}
                             onChange={handlePersonalProfileChange}
                             className="NewPostInput-input"/>
-                    </Form.Item><br/>
-                    <Form.Item>
-                        <Button type="submit"
-                                htmlType="submit"
-                                className="NewPostInput-button u-pointer"
-                                value="Submit"
-                                onClick={handlePostSubmit}
-                        >
-                            发起组队
-                        </Button>
-                    </Form.Item>
-                </div>
-            </Form>
+                        </Form.Item>
+                        <br/>
+                        <Form.Item>
+                            <Button type="submit"
+                                    htmlType="submit"
+                                    className="NewTeamPostInput NewPostInput-button u-pointer"
+                                    value="Submit"
+                                    onClick={handlePostSubmit}
+                            >
+                                发起组队
+                            </Button>
+                        </Form.Item>
+                    </div>
+                </Form>
+
+            </div>
         </div>
+
     )
 };
 
@@ -221,4 +228,4 @@ const NewCommentPost = (props) => {
     return <NewCommentPostInput defaultText={"New Comment"} onSubmit={addCommentPost}/>;
 };
 
-export {NewTeamPost,NewCommentPost};
+export {NewTeamPost, NewCommentPost};

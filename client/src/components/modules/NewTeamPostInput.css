@@ -34,10 +34,21 @@ p {display: inline}
 }
 
 .NewTeamPostInput{
-
+  font-size: 16px;
+  font-family: italic;
   padding: 10px;
 }
 
+.TeamPostFormItem{
+  text-align: center;
+}
+
+.NewTeamPostInput-container{
+  background-color: lightblue;
+  height: auto;
+  width: auto;
+  vertical-align: center;
+}
 @charset "utf-8";
 
 
