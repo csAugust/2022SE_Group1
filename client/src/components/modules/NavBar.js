@@ -12,7 +12,7 @@ const NavBar = () => {
       <div className="NavBar-logo"/>
       <div className="NavBar-linkContainer u-flex">
         <Link to="/" className="NavBar-link-welcome"/>
-        <Link to="/teamup" className="NavBar-link-group"/>
+        <Link to="/teamuppost" className="NavBar-link-group"/>
         <Link to="/" className="NavBar-link-myacc"/>
         <Link to="/login" className="NavBar-link-login"/>
         <Link to="/profile/" className="NavBar-link-contact"/>

@@ -16,7 +16,7 @@ const TeamNewComment=(props)=>{
             parent:props.TeamPostId,
             content:value,
         };
-        post("/api/comment", body).then((comment) => {
+        post("/api/TeamPostComment", body).then((comment) => {
             // display this comment on the screen
             props.addNewComment(comment);
         });

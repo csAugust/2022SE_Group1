@@ -33,7 +33,7 @@ const TeamPost = (props) => {
 
     return (
 
-            <div className="TeamPost-container">
+            <div className="TeamUp-container">
                 <TeamSinglePost
                     _id={props._id}
                     creator_name={props.creator_name}
@@ -42,11 +42,12 @@ const TeamPost = (props) => {
                     personal_profile={props.personal_profile}
                     members_num={props.members_num}
                     team_name={props.team_name}
-                ></TeamSinglePost>
+                />
                 <TeamCommentsBlock TeamPost={props}
                                    comments={comments}
                                    addTeamNewComment={addTeamNewComment}
-                ></TeamCommentsBlock>
+                />
+                <br/>
             </div>
     );
 };

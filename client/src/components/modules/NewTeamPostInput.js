@@ -26,16 +26,15 @@ const tailLayout = {
 const NewTeamPost = (props) => {
     const addTeamPost = (value) => {
         const body = {
-            CourseName: value.CourseName,
-            MembersNum: value.MembersNum,
-            PersonalProfile: value.PersonalProfile,
-            TeamName: value.TeamName,
-            creator_name: value.creator_name,
-            content:value.content,
-
+            course_name: value.CourseName,
+            members_num: value.MembersNum,
+            personal_profile: value.PersonalProfile,
+            team_name: value.TeamName,
+            creator_name: value.Creator_Name,
+            content:"固定一下",
         };
         post("api/TeamPost", body).then((teampost) => {
-            props.addTeamNewComment(teampost);
+            props.addNewTeamPost(teampost);
         })
     };
 
@@ -117,13 +116,13 @@ const NewTeamPostInput = (props) => {
     // called when the user hits "Submit" for a new post
     const handlePostSubmit = (event) => {
         event.preventDefault();
-         const return_value = {
-            CourseName: value.CourseName,
-            MembersNum: value.MembersNum,
-            PersonalProfile: value.PersonalProfile,
-            TeamName: value.TeamName,
-            creator_name: value.creator_name,
-            content:value.content,
+        const return_value = {
+            CourseName: coursename,
+            MembersNum: membersnum,
+            PersonalProfile: personal,
+            TeamName: teamname,
+            Creator_Name: "cbajklbvs",
+
         };
         props.onSubmit && props.onSubmit(return_value);
         setValue("");
@@ -134,7 +133,7 @@ const NewTeamPostInput = (props) => {
     };
 
     return (
-        <TeamPost style={{width: "auto"}}>
+        <div className={"NewTeamPostInput"}>
             <Form {...layout}>
                 <div className="u-flex">
                     <Form.Item
@@ -186,45 +185,40 @@ const NewTeamPostInput = (props) => {
                             {required: false},
                         ]}
                     >
-                        <Mentions autoSize style={{
-                            width: '100%',
-                        }}>
-                            <Input
-                                type="text"
-                                placeholder={'选填'}
-                                value={personal}
-                                onChange={handlePersonalProfileChange}
-                                className="NewPostInput-input"/>
-                        </Mentions>
-
-                    </Form.Item>
-                    <Form.Item {...tailLayout}>
+                        <Input
+                            type="text"
+                            placeholder={'选填'}
+                            value={personal}
+                            onChange={handlePersonalProfileChange}
+                            className="NewPostInput-input"/>
+                    </Form.Item><br/>
+                    <Form.Item>
                         <Button type="submit"
                                 htmlType="submit"
                                 className="NewPostInput-button u-pointer"
                                 value="Submit"
                                 onClick={handlePostSubmit}
                         >
-                            {"submmit"}
+                            发起组队
                         </Button>
                     </Form.Item>
-
                 </div>
             </Form>
-        </TeamPost>
+        </div>
     )
-}
+};
 
-const NewCommentPost=(props)=>{
-    const addCommentPost=(value)=>{
-        const body={
-            parent:props.TeampPostId,
-            content:value
+const NewCommentPost = (props) => {
+    const addCommentPost = (value) => {
+        const body = {
+            parent: props.TeampPostId,
+            content: value
         }
-        post("api/TeamPostComment",body).then((comment)=>{
-            props.addTeamNewComment(comment);
+        post("api/TeamPostComment", body).then((comment) => {
+            props.addNewComment(comment);
         });
     };
-    return <NewTeamPostInput defaultText={"New Comment"} onSubmit={addCommentPost}/>;
-}
-export default NewTeamPost;
+    return <NewCommentPostInput defaultText={"New Comment"} onSubmit={addCommentPost}/>;
+};
+
+export {NewTeamPost,NewCommentPost};

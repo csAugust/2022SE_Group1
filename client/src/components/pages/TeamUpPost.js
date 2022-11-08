@@ -2,15 +2,16 @@ import "./TeamUpPost.css"
 import React from "react";
 import {useState, useEffect} from "react";
 import TeamPost from "../modules/TeamPost";
-import NewTeamPost from "../modules/NewTeamPostInput";
+import {NewTeamPost} from "../modules/NewTeamPostInput";
 import {get} from "../../utilities";
 import "../pages/Mainpage.css"
+import {Link} from "@reach/router";
 const TeamUpPost = () => {
     const [TeamPosts, setTeamPosts] = useState([]);
 
     useEffect(() => {
         document.title = "News TeamPost";
-        get("/api/TeamPosts").then((TeamPostObjs) => {
+        get("api/TeamPosts").then((TeamPostObjs) => {
             let reverseTeamPostObjs = TeamPostObjs.reverse();
             setTeamPosts(reverseTeamPostObjs);
         });
@@ -43,9 +44,10 @@ const TeamUpPost = () => {
     return (
         <div className={"Mainpage-container"}>
             <div className={"TeamPost-container"}>
-                <NewTeamPost addNewTeamPost={addNewTeamPost}/>
+                <NewTeamPost addNewTeamPost={addNewTeamPost}/><br/>
                 {TeamPostsList}
             </div>
+
         </div>
 
     )

@@ -23,7 +23,7 @@ p {display: inline}
 .NewPostInput-button {
   color: var(--primary);
   border: var(--primary) 1px solid;
-  border-radius: 0 var(--xs) var(--xs) 0;
+  border-radius: var(--xs) 0 0 var(--xs);
   background: none;
   transition: color 0.1s, background 0.1s;
 }
@@ -31,6 +31,11 @@ p {display: inline}
 .NewPostInput-button:hover {
   color: var(--white);
   background-color: var(--primary);
+}
+
+.NewTeamPostInput{
+
+  padding: 10px;
 }
 
 @charset "utf-8";

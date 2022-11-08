@@ -120,7 +120,7 @@ const teampostdata = {
     {
       _id: 1,
       creator_name: "Carol",
-      parent: 1,
+      parent: 0,
       content: "人齐了吗?",
     }
 
@@ -134,27 +134,31 @@ router.post("/TeamPostComment", (req, res) => {
     parent: req.body.parent,
     content: req.body.content,
   };
-
   teampostdata.comments.push(newTeamPostComment);
   res.send(newTeamPostComment);
-});
-
-router.get("/TeamPostComment", (req, res) => {
-  const filteredComments = teampostdata.comments.filter(
-    (teampostdata) => teampostdata.parent == req.query.parent);
-  res.send(filteredComments)
 });
 
 router.post("/TeamPost", (req, res) => {
   const newTeamPost = {
     _id: teampostdata.teamposts.length,
-    creator_name: MY_NAME,
+    creator_name: req.body.creator_name,
     content: req.body.content,
+    course_name:req.body.course_name,
+    team_name:req.body.team_name,
+    members_num:req.body.members_num,
+    personal_profile:req.body.personal_profile
   };
-
-  teampostdata.stories.push(newTeamPost);
+  teampostdata.teamposts.push(newTeamPost);
   res.send(newTeamPost);
 });
+
+router.get("/TeamPostComment", (req, res) => {
+  const filteredComments = teampostdata.comments.filter(
+    (comment) => comment.parent == req.query.parent);
+  res.send(filteredComments);
+});
+
+
 
 router.get("/TeamPosts", (req, res) => {
   // send back all of the stories!

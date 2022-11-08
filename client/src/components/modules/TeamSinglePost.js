@@ -15,12 +15,12 @@ import "./TeamPost.css"
 
 const TeamSinglePost = (props) => {
     return (
-        <div className={"TeamInfo-commentSection"}>
+        <div className={"TeamInfo-First"}>
             <span className="u-bold">{props.creator_name}</span><br/>
             <p className="TeamPostContent">{"课程名称："+props.course_name}</p><br/>
             <p className="TeamPostContent">{"组队人数："+props.members_num}</p><br/>
-            <p className="TeamPostContent">{"个人简介"+props.personal_profile}</p><br/>
-            <p className="TeamPostContent">{"队伍名称"+props.team_name}</p><br/>
+            <p className="TeamPostContent">{"个人简介："+props.personal_profile}</p><br/>
+            <p className="TeamPostContent">{"队伍名称："+props.team_name}</p><br/>
             <p className="TeamPostContent">{props.content}</p><br/>
         </div>
     )

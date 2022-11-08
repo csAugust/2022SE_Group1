@@ -2,7 +2,7 @@ import React from "react";
 import TeamPost from "./TeamPost.js";
 import TeamSingleComment from "./TeamSingleComment";
 import TeamNewComment  from "./TeamSingleComment";
-
+import {NewCommentPost} from "./NewTeamPostInput";
 /**
  * 用户评论
  * Proptypes
@@ -41,7 +41,7 @@ const TeamCommentsBlock = (props) => {
             content={comment.content}
           />
         ))}
-        <TeamNewComment TeamPostId={props.TeamPost._id} addNewComment={props.addNewComment} />
+        <NewCommentPost TeamPostId={props.TeamPost._id} addNewComment={props.addTeamNewComment} />
       </div>
     </div>
   );

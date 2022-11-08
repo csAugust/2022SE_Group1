@@ -11,6 +11,7 @@ TeamPost-container:first-of-type {
 .TeamPost-First{
     padding: var(--m) var(--l);
 }
+.TeamInfo-First,
 .TeamInfo-commentSection {
     padding: var(--m) var(--l);
 }
@@ -20,7 +21,7 @@ TeamPost-container:first-of-type {
     font-size: 10px;
     margin: var(--s) 0 0;
 }
-
+.TeamInfo-First,
 .TeamInfo-commentSection {
     background-color: var(--grey);
     border-top: 1px solid var(--darkgrey);
