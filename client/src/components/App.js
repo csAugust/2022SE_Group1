@@ -7,7 +7,7 @@
  * Notfound: 404页面
  */
 
-import React from "react";
+import React,{ useState, useEffect } from "react";
 import NavBar from "./modules/NavBar.js";
 import { Router } from "@reach/router";
 import Feed from "./pages/Feed.js";
@@ -16,6 +16,7 @@ import Profile from "./pages/Profile.js";
 import Mainpage from "./pages/Mainpage.js";
 import Login from "./pages/Login.js";
 import Register from "./pages/Register.js";
+import Myacc from "./pages/Myacc.js";
 import TeamUp from "./pages/TeamUp.js"
 
 // to use styles, import the necessary CSS files
@@ -30,12 +31,13 @@ import TeamUpPost from "./pages/TeamUpPost";
 const App = () => {
   // required method: whatever is returned defines what
   // shows up on screen
-
+  const [login, setLogin] = useState(false);
+  const loginSwitch = () => setLogin(true);
   return (
     // <> is like a <div>, but won't show
     // up in the DOM tree
     <>
-      <NavBar />
+      <NavBar logstate={login}/>
       <div className="App-container">
         <Router>
           <Mainpage path="/" />
@@ -43,8 +45,9 @@ const App = () => {
           <TeamUp path="/teamup"/>
           <TeamUpPost path="/teamuppost"/>
           <Profile path="/profile/" />
-          <Login path="/login" />
+          <Login path="/login" onlogin={loginSwitch}/>
           <Register path="/register" />
+          <Myacc path="/myacc" />
           <NotFound default />
         </Router>
       </div>

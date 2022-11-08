@@ -86,3 +86,7 @@
   background-repeat: no-repeat;
   background-image: url("../../public/mainpage/contact.png");
 }
+
+.my_username{
+  white-space: nowrap;
+}

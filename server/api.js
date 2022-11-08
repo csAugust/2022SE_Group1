@@ -97,6 +97,8 @@ router.post("/register", (req, res) => {
   }
 });
 
+
+
 const teampostdata = {
   teamposts: [
     {
@@ -163,6 +165,29 @@ router.get("/TeamPostComment", (req, res) => {
 router.get("/TeamPosts", (req, res) => {
   // send back all of the stories!
   res.send(teampostdata.teamposts);
+});
+
+router.post("/login", (req, res) => {
+  if(req.body.password == usermap.get(req.body.username)){
+    console.log("OK");
+    res.send({result : "OK"});
+  }
+  else{
+    console.log("Wrong pwd");
+    res.send({result : "Wrong"});
+  }
+});
+
+router.post("/register", (req, res) => {
+  if(usermap.has(req.body.username) == false){
+    usermap.set(req.body.username,req.body.password);
+    console.log("Register Done");
+    res.send({result : "OK"});
+  }
+  else{
+    console.log("Already Exist");
+    res.send({result : "Wrong"});
+  }
 });
 
 // similar to our other catch all route in server.js,
