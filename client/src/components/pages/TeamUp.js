@@ -1,35 +1,59 @@
 import "./TeamUp.css"
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {Link, Router} from "@reach/router";
 import "./Mainpage.css"
+import {get} from "../../utilities";
+import TeamPost from "../modules/TeamPost";
+import {NewTeamPost} from "../modules/NewTeamPostInput";
 
 const TeamUp = () => {
+    const [TeamPosts, setTeamPosts] = useState([]);
+
+    useEffect(() => {
+        document.title = "News TeamPost";
+        get("api/TeamPosts").then((TeamPostObjs) => {
+            let reverseTeamPostObjs = TeamPostObjs.reverse();
+            setTeamPosts(reverseTeamPostObjs);
+        });
+    }, [])
+
+    const addNewTeamPost = (TeamPostObj) => {
+        setTeamPosts([TeamPostObj].concat(TeamPosts));
+    }
+    let TeamPostsList = null;
+    const hasTeamPosts = (TeamPosts.length !== 0);
+
+    if (hasTeamPosts) {
+        TeamPostsList = TeamPosts.map((TeamPostObj) => (
+            <TeamPost
+                key={`TeamPost_${TeamPostObj._id}`}
+                _id={TeamPostObj._id}
+                creator_name={TeamPostObj.creator_name}
+                members_num={TeamPostObj.members_num}
+                team_name={TeamPostObj.team_name}
+                course_name={TeamPostObj.course_name}
+                personal_profile={TeamPostObj.personal_profile}
+                content={TeamPostObj.content}
+            />
+        ));
+    } else {
+        TeamPostsList = <div>No TeamPost!</div>
+    }
+
     return (
         <div className={"Mainpage-container"}>
             <div className={"TeamUp-container"}>
                 <div className="HintInfo">浏览已有组队或点击
                     <Link className="easter_egg1" to="/teamuppost">此处</Link>
                     发起组队
+                </div><br/><br/><br/>
+                <div className={"TeamPost-container"}>
+                {TeamPostsList}
+                <div className={"BottomLine"}>我是有底线的</div>
                 </div>
             </div>
-
-            <div className={"TeamPost"}>
-                <button className={"join-button"}></button>
-                <div className={"post-contnet"}>
-                    <h5 className={"creator-name"}> Jack<br/></h5>
-                    <h5 className={"course-name"}> 课程名：软件工程 </h5>
-                    <h5 className={"members-num"}> 组队人数：5 </h5>
-                    <h5 className={"personal-profile"}>个人简介：精通html css 熟练掌握python</h5>
-                    <h5 className={"content"}>不划水，大家一起努力，希望有志同道合的小伙伴加入我们！！ </h5>
-                </div>
-                <div className={"Comments"}>
-
-                    <input className={"comment-input"}/>
-                    <button className={"comment-button"}>发表评论</button>
-                </div>
-            </div>
-            <div className="Mainpage-status"/>
         </div>
+
         //调用展示数据库中已有组队信息接口
     )
 }

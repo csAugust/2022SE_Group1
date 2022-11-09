@@ -3,19 +3,17 @@
 }
 
 .HintInfo {
-    font-size: xx-large;
-    font-style: italic;
+    font-size: 20px;
+    font-family: SimSun;
     font-weight: bold;
     color: white;
-    text-align: center;
-    align-content: center;
+    left: 40%;
     position: absolute;
     top: 150px;
-    left: 600px;
 }
 
 .easter_egg1 {
-    background: linear-gradient(to right, rgb(239, 255, 19), rgb(251, 0, 0) 50%, rgb(255, 255, 255) 50%);
+    background: linear-gradient(to right, rebeccapurple,blue, red 50%, white 50%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

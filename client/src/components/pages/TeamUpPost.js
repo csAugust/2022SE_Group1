@@ -20,7 +20,6 @@ const TeamUpPost = () => {
     const addNewTeamPost = (TeamPostObj) => {
         setTeamPosts([TeamPostObj].concat(TeamPosts));
     }
-
     let TeamPostsList = null;
     const hasTeamPosts = (TeamPosts.length !== 0);
 
@@ -45,7 +44,6 @@ const TeamUpPost = () => {
         <div className={"Mainpage-container"}>
             <div className={"TeamPost-container"}>
                 <NewTeamPost addNewTeamPost={addNewTeamPost}/><br/>
-                {TeamPostsList}
             </div>
 
         </div>

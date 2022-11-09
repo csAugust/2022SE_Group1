@@ -8,29 +8,39 @@ TeamPost-container:first-of-type {
     margin-top: var(--l);
 }
 
-.TeamPost-First{
+.TeamInfo-First{
     padding: var(--m) var(--l);
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
 }
 .TeamInfo-First,
 .TeamInfo-commentSection {
     padding: var(--m) var(--l);
 }
 
-
+.TeamPost-comments,
 .TeamPostContent {
-    font-size: 10px;
+    font-family: "Times New Roman",SimSun;
+    font-size: 15px;
     margin: var(--s) 0 0;
 }
 .TeamInfo-First,
 .TeamInfo-commentSection {
-    background-color: var(--grey);
+    background: rgba(240,248,255,0.9);
     border-top: 1px solid var(--darkgrey);
 }
-
-.TeamPost-comments{
-
+.TeamInfo-commentSection {
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
+
 
 .TeamPost-commentBody {
     margin: 0 0 var(--s);
+}
+
+.TeamPostUser{
+    font-size: 25px;
+    font-family: "Times New Roman";
+    font-weight: bold;
 }

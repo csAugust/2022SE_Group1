@@ -19,7 +19,7 @@ const Login = (props) => {
   const handleLogin = async (event) => {
     event.preventDefault();
     let result;
-    let url="http://10.7.7.230:8080/login?email="+name+"&password="+pwd;
+    let url="http://localhost:8080/login?email="+name+"&password="+pwd;
     await axios.get(url)
       .then((response) => {
         result=response.data;

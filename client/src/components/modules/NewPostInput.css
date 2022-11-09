@@ -2,7 +2,6 @@
 p {display: inline}
 .NewPostInput-input,
 .NewPostInput-button {
-  font-family: "Open Sans";
   font-size: 14px;
   padding: var(--s) var(--m);
   white-space: pre-wrap;
@@ -11,9 +10,10 @@ p {display: inline}
 .NewPostInput-input {
   flex-grow: 1;
   border: var(--darkgrey) 1px solid;
-  border-radius: var(--xs) 0 0 var(--xs);
   transition: box-shadow 0.1s;
   white-space: pre-wrap;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .NewPostInput-input:focus-within {

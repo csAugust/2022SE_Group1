@@ -104,26 +104,46 @@ const teampostdata = {
     {
       _id: 0,
       creator_name: "Alice",
-      course_name:"软件工程",
-      members_num:1,
-      personal_profile:"精通java",
-      team_name:"冲冲冲",
-      content: "Anyone for software engineering course's group?"
+      course_name:"经济学原理",
+      members_num:5,
+      personal_profile:"来自信科，可以进行数据分析",
+      team_name:"Anti-Hero",
+      content: "目前已有来自信科的两位同学，希望来自人文院系的小伙伴加入我们哟( •̀ ω •́ )y"
+    },
+    {
+      _id: 1,
+      creator_name: ":)",
+      course_name:"地震概论",
+      members_num:6,
+      personal_profile:"不划水~",
+      team_name:"Midnights",
+      content: "北大第一大课应该不难组队吧("
     }
   ],
   comments: [
     {
       _id: 0,
-      creator_name: "Bob",
+      creator_name: "Crazy Bob",
       parent: 0,
-      team_name:"软工1组",
-      content: "Maybe I could?",
+      content: "举手o(*^▽^*)┛",
     },
     {
       _id: 1,
-      creator_name: "Carol",
+      creator_name: "Dave",
       parent: 0,
       content: "人齐了吗?",
+    },
+      {
+      _id: 3,
+      creator_name: "Thomas",
+      parent: 0,
+      content: "楼主留号哇(★ ω ★)",
+    },
+    {
+      _id: 0,
+      creator_name: "Baby Bob",
+      parent: 1,
+      content: "来了来了",
     }
 
   ],
@@ -132,7 +152,7 @@ const teampostdata = {
 router.post("/TeamPostComment", (req, res) => {
   const newTeamPostComment = {
     _id: teampostdata.comments.length,
-    creator_name: MY_NAME,
+    creator_name: req.body.creator_name,
     parent: req.body.parent,
     content: req.body.content,
   };
