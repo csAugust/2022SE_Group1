@@ -7,7 +7,8 @@ import axios from 'axios';
 const Login = (props) => {
   const [name, setName] = useState("");
   const [pwd, setPwd] = useState("");
-
+  const [login, setLogin] = useState(false);
+  const loginSwitch = () => setLogin(true);
   const handleNameChange = (event) => {
     setName(event.target.value);
   };
@@ -29,6 +30,7 @@ const Login = (props) => {
 
     if(result[0] == "S"){
       global.user.name = name;
+      loginSwitch();
       props.onlogin();
       //window.alert("成功!");
     }
@@ -36,7 +38,18 @@ const Login = (props) => {
       window.alert("密码错误!");
 
   };
-
+  // if(login)
+  // return (
+  //   <div className="Login-container">
+  //     <div className="Login-logo"/>
+  //     <button
+  //       className="Login-login_botton"
+  //       onClick={handleLogin}
+  //     >      </button>
+  //     <div className="Login-status"/>
+  //   </div>
+  // );
+  // else
   return (
     <div className="Login-container">
       <div className="Login-logo"/>

@@ -47,6 +47,7 @@ input[type=text].regi{
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    font-size: 26px;
 }
 
 input[type=password].first{
@@ -58,6 +59,7 @@ input[type=password].first{
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    font-size: 26px;
 }
 
 input[type=password].second{
@@ -69,4 +71,5 @@ input[type=password].second{
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    font-size: 26px;
 }

@@ -59,6 +59,7 @@ input[type=text].log{
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    font-size: 26px;
 }
 
 input[type=password].log{
@@ -70,4 +71,5 @@ input[type=password].log{
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    font-size: 26px;
 }
