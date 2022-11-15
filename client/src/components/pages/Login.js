@@ -20,7 +20,8 @@ const Login = (props) => {
   const handleLogin = async (event) => {
     event.preventDefault();
     let result;
-    let url="http://10.7.7.230:8080/login?email="+name+"&password="+pwd;
+    var pwdb = window.btoa(pwd);
+    let url="http://10.7.7.230:8080/login?email="+name+"&password="+pwdb;
     await axios.get(url)
       .then((response) => {
         result=response.data;
@@ -35,7 +36,7 @@ const Login = (props) => {
       //window.alert("成功!");
     }
     else
-      window.alert("密码错误!");
+      window.alert("用户名或密码错误!");
 
   };
   // if(login)
