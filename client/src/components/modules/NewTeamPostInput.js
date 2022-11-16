@@ -4,7 +4,8 @@ import TeamPost from "./TeamPost";
 import {Button, Form, Input, Mentions, message} from "antd";
 import "./NewTeamPostInput.css"
 import {Link} from "@reach/router";
-
+import axios from "axios";
+import qs from 'qs'
 
 const layout = {
     labelCol: {
@@ -30,9 +31,32 @@ const NewTeamPost = (props) => {
             creator_name: value.Creator_Name,
             content: value.Content,
         };
-        post("api/TeamPost", body).then((teampost) => {
-            props.addNewTeamPost(teampost);
-        })
+        // post("api/TeamPost", body).then((teampost) => {
+        //     props.addNewTeamPost(teampost);
+        // })
+        const postTeamPost = async () => {
+            await axios({
+                method: "post",
+                url: "http://localhost:8080/teams",//请求接口
+                headers: {
+                    'Content-Type': 'application/json;charset=UTF-8'
+                },//请求头参数
+                data: {
+                    team: {
+                        creatorId: global.user.Id,
+                        name: value.TeamName,
+                    },
+                    info: {
+                        numberLimit: value.MembersNum,
+                        content: value.Content,
+                        course: value.CourseName,
+                    }
+                }
+            }).then((res) => {
+                console.log(res);
+            });
+        }
+        postTeamPost();
     };
 
     return <NewTeamPostInput defaultText={"New TeamPost"} onSubmit={addTeamPost}/>;
@@ -134,7 +158,6 @@ const NewTeamPostInput = (props) => {
         setteamname("");
         setContent("");
     };
-
 
 
     return (
