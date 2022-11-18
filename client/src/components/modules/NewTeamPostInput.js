@@ -24,16 +24,17 @@ const layout = {
 const NewTeamPost = (props) => {
     const addTeamPost = (value) => {
         const body = {
-            course_name: value.CourseName,
-            members_num: value.MembersNum,
-            personal_profile: value.PersonalProfile,
-            team_name: value.TeamName,
-            creator_name: value.Creator_Name,
-            content: value.Content,
-        };
-        // post("api/TeamPost", body).then((teampost) => {
-        //     props.addNewTeamPost(teampost);
-        // })
+            team: {
+                creatorId: global.user.Id,
+                name: value.TeamName,
+            },
+            info: {
+                numberLimit: value.MembersNum,
+                content: value.Content,
+                course: value.CourseName,
+            },
+            commentList: null
+        }
         const postTeamPost = async () => {
             await axios({
                 method: "post",
@@ -50,11 +51,13 @@ const NewTeamPost = (props) => {
                         numberLimit: value.MembersNum,
                         content: value.Content,
                         course: value.CourseName,
-                    }
+                    },
+                    commentList: null
                 }
             }).then((res) => {
                 console.log(res);
             });
+            props.addNewTeamPost(body);
         }
         postTeamPost();
     };
@@ -115,7 +118,6 @@ const NewTeamPostInput = (props) => {
     const [content, setContent] = useState("");
     const [coursename, setCourseName] = useState("");
     const [membersnum, setMembersNum] = useState("");
-    const [personal, setpersonal] = useState("");
     const [teamname, setteamname] = useState("");
     // called whenever the user types in the new post input box
     const handleCourseNameChange = e => {
@@ -124,10 +126,6 @@ const NewTeamPostInput = (props) => {
 
     const handleMembersNumChange = e => {
         setMembersNum(e.target.value);
-    };
-
-    const handlePersonalProfileChange = e => {
-        setpersonal(e.target.value);
     };
 
     const handleTeamNameChange = e => {
@@ -146,7 +144,6 @@ const NewTeamPostInput = (props) => {
         const return_value = {
             CourseName: coursename,
             MembersNum: membersnum,
-            PersonalProfile: personal,
             TeamName: teamname,
             Creator_Name: global.user.name,
             Content: content,
@@ -154,7 +151,6 @@ const NewTeamPostInput = (props) => {
         props.onSubmit && props.onSubmit(return_value);
         setCourseName("");
         setMembersNum();
-        setpersonal("");
         setteamname("");
         setContent("");
     };
@@ -209,21 +205,7 @@ const NewTeamPostInput = (props) => {
                         />
                         </Form.Item><br/>
 
-                        <Form.Item
-                            name="PersonalInfo"
-                            label=""
-                            rules={[
-                                {required: false},
-                            ]}
-                        >
-                            个人简介：<Input
-                            type="text"
-                            placeholder={''}
-                            value={personal}
-                            onChange={handlePersonalProfileChange}
-                            className="NewPostFirstInput-input"/>
-                        </Form.Item>
-                        <br/>
+
                         <Form.Item labelCol={{span: 6}} wrapperCol={{span: 16}}
                                    name="Content"
                                    label=""
@@ -235,7 +217,7 @@ const NewTeamPostInput = (props) => {
                                       labelCol={{span: 6}} wrapperCol={{span: 16}}
                                       type="text"
                                       placeholder={'写下想说的话...'}
-                                      value={personal}
+                                      value={content}
                                       onChange={handleContentChange}
                                       className="NewPostContentInput-input">
 
@@ -264,13 +246,14 @@ const NewTeamPostInput = (props) => {
 const NewCommentPost = (props) => {
     const addCommentPost = (value) => {
         const body = {
-            parent: props.TeampPostId,
             content: value,
-            creator_name: global.user.name,
+            teamId: props.TeamPostId,
+            senderId: global.user.Id,
         }
-        post("api/TeamPostComment", body).then((comment) => {
-            props.addNewComment(comment);
+        post("http://localhost:8080/comments/", body).then((res) => {
+            props.addNewComment(body);
         });
+        axios.post();
     };
     return <NewCommentPostInput defaultText={"New Comment"} onSubmit={addCommentPost}/>;
 };

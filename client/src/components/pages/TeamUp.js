@@ -1,10 +1,8 @@
 import "./TeamUp.css"
 import React, {useEffect, useState} from "react";
-import {Link, Router} from "@reach/router";
+import {Link} from "@reach/router";
 import "./Mainpage.css"
-import {get} from "../../utilities";
 import TeamPost from "../modules/TeamPost";
-import {NewTeamPost} from "../modules/NewTeamPostInput";
 import axios from "axios";
 
 const TeamUp =() => {
@@ -12,7 +10,9 @@ const TeamUp =() => {
     let TeamPostNum;
     let TeamPostObj;
     const addNewTeamPost = (TeamPostObj) => {
-        TeamPosts.unshift(TeamPostObj);
+        TeamPosts.push(TeamPostObj);
+        let reverseTeamPosts=TeamPosts.reverse()
+        setTeamPosts(reverseTeamPosts);
     }
     const getTeamPost = async (id) => {
         await axios.get("http://localhost:8080/teams/" + id.toString())
@@ -30,7 +30,6 @@ const TeamUp =() => {
             .catch(err => alert(err));
         return TeamPostNum;
     };
-
     const setTeamPosts_=async ()=>{
          await getTeamPostsNum().then((res) => {
                 if (res !== 0) {
@@ -43,7 +42,6 @@ const TeamUp =() => {
             }
         );
     }
-
     useEffect(() => {
         document.title = "News TeamPost";
         setTeamPosts_();
@@ -64,11 +62,11 @@ const TeamUp =() => {
                 team_name={TeamPostObj.team.name}
                 course_name={TeamPostObj.info.course}
                 content={TeamPostObj.info.content}
+                comments={TeamPostObj.commentList}
             />
         ));
     } else {
         TeamPostsList = <div>No TeamPost!</div>
-
     }
 
     return (
@@ -85,8 +83,6 @@ const TeamUp =() => {
                 </div>
             </div>
         </div>
-
-        //调用展示数据库中已有组队信息接口
     )
 }
 

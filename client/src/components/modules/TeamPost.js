@@ -18,12 +18,7 @@ import axios from "axios";
  * @param {string} team_name 组队名称
  * @param {string} content 内容
  */
-
-const TeamPost = (props) => {
-
-    const [comments, setComments] = useState([]);
-    const [creator_name,setCreatorName]=useState("");
-    const getCreatorNamebyId = async (Id) => {
+const getCreatorNamebyId = async (Id) => {
         let temp;
         await axios.get("http://localhost:8080/users/" + Id.toString())
             .then((response) => {
@@ -32,16 +27,16 @@ const TeamPost = (props) => {
             .catch(err => alert(err));
         return temp;
     }
-    useEffect(() => {
-        // get("/api/TeamPostComment", {parent: props._id}).then((comments) => {
-        //     setComments(comments);
-        // });
+const TeamPost = (props) => {
 
+    const [comments, setComments] = useState(props.comments);
+    const [creator_name,setCreatorName]=useState("");
+
+    useEffect(() => {
         getCreatorNamebyId(props.creator_name).then((res)=>{
             setCreatorName(res);
             }
         );
-
     }, []);
 
     const addTeamNewComment = (TeamPostCommentObj) => {
@@ -59,10 +54,10 @@ const TeamPost = (props) => {
                 members_num={props.members_num}
                 team_name={props.team_name}
             />
-            {/*<TeamCommentsBlock TeamPost={props}*/}
-            {/*                   comments={comments}*/}
-            {/*                   addTeamNewComment={addTeamNewComment}*/}
-            {/*/>*/}
+            <TeamCommentsBlock TeamPost={props}
+                               comments={comments}
+                               addTeamNewComment={addTeamNewComment}
+            />
             <br/>
         </div>
     );
