@@ -60,6 +60,7 @@ module.exports = {
   },
   resolve: {
     extensions: ["*", ".js", ".jsx"],
+    fallback: { path: require.resolve('path-browserify') }
   },
   plugins: [new webpack.HotModuleReplacementPlugin()],
   devServer: {

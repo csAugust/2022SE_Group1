@@ -1,8 +1,10 @@
 import React from "react";
 import TeamPost from "./TeamPost.js";
 import TeamSingleComment from "./TeamSingleComment";
-import TeamNewComment  from "./TeamSingleComment";
+import TeamNewComment from "./TeamSingleComment";
 import {NewCommentPost} from "./NewTeamPostInput";
+import axios from "axios";
+
 /**
  * 用户评论
  * Proptypes
@@ -30,21 +32,20 @@ import {NewCommentPost} from "./NewTeamPostInput";
  * @param {TeamPost} TeamPost
  */
 const TeamCommentsBlock = (props) => {
-  return (
-    <div className="TeamInfo-commentSection">
-      <div className="TeamPost-comments">
-        {props.comments.map((comment) => (
-          <TeamSingleComment
-            key={`TeamSingleComment_${comment._id}`}
-            _id={comment._id}
-            creator_name={comment.creator_name}
-            content={comment.content}
-          />
-        ))}
-        <NewCommentPost TeamPostId={props.TeamPost._id} addNewComment={props.addTeamNewComment} />
-      </div>
-    </div>
-  );
+    return (
+        <div className="TeamInfo-commentSection">
+            <div className="TeamPost-comments">
+                {props.comments.map((comment) => (
+                    <TeamSingleComment
+                        key={comment.id}
+                        creator_name={comment.senderId}
+                        content={comment.content}
+                    />
+                ))}
+                <NewCommentPost TeamPostId={props.TeamPost._id} addNewComment={props.addTeamNewComment}/>
+            </div>
+        </div>
+    );
 };
 
 export default TeamCommentsBlock;

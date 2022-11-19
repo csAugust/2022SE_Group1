@@ -5,6 +5,7 @@ import TeamSinglePost from "./TeamSinglePost";
 import {get} from "../../utilities";
 import "./TeamPost.css"
 import "../pages/Mainpage.css"
+import axios from "axios";
 
 /**
  * 组队申请
@@ -15,16 +16,27 @@ import "../pages/Mainpage.css"
  * @param {string} personal_profile 组队申请者个人简介
  * @param {number} members_num 组队申请人数
  * @param {string} team_name 组队名称
+ * @param {string} content 内容
  */
-
+const getCreatorNamebyId = async (Id) => {
+        let temp;
+        await axios.get("http://localhost:8080/users/" + Id.toString())
+            .then((response) => {
+                temp= response.data.data.email;
+            })
+            .catch(err => alert(err));
+        return temp;
+    }
 const TeamPost = (props) => {
 
-    const [comments, setComments] = useState([]);
+    const [comments, setComments] = useState(props.comments);
+    const [creator_name,setCreatorName]=useState("");
 
     useEffect(() => {
-        get("/api/TeamPostComment", {parent: props._id}).then((comments) => {
-            setComments(comments);
-        });
+        getCreatorNamebyId(props.creator_name).then((res)=>{
+            setCreatorName(res);
+            }
+        );
     }, []);
 
     const addTeamNewComment = (TeamPostCommentObj) => {
@@ -33,22 +45,21 @@ const TeamPost = (props) => {
 
     return (
 
-            <div className="TeamUp-container">
-                <TeamSinglePost
-                    _id={props._id}
-                    creator_name={props.creator_name}
-                    content={props.content}
-                    course_name={props.course_name}
-                    personal_profile={props.personal_profile}
-                    members_num={props.members_num}
-                    team_name={props.team_name}
-                />
-                <TeamCommentsBlock TeamPost={props}
-                                   comments={comments}
-                                   addTeamNewComment={addTeamNewComment}
-                />
-                <br/>
-            </div>
+        <div className="TeamUp-container">
+            <TeamSinglePost
+                _id={props._id}
+                creator_name={creator_name}
+                content={props.content}
+                course_name={props.course_name}
+                members_num={props.members_num}
+                team_name={props.team_name}
+            />
+            <TeamCommentsBlock TeamPost={props}
+                               comments={comments}
+                               addTeamNewComment={addTeamNewComment}
+            />
+            <br/>
+        </div>
     );
 };
 

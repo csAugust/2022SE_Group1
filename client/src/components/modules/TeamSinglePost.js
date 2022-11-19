@@ -20,7 +20,6 @@ const TeamSinglePost = (props) => {
             <p className="TeamPostContent">{"课程名称："+props.course_name}</p><br/>
             <p className="TeamPostContent">{"队伍名称："+props.team_name}</p><br/>
             <p className="TeamPostContent">{"组队人数："+props.members_num}</p><br/>
-            <p className="TeamPostContent">{"个人简介："+props.personal_profile}</p><br/>
             <p className="TeamPostContent">{props.content}</p><br/>
         </div>
     )

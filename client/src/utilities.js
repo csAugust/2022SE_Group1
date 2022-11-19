@@ -64,4 +64,5 @@ export function post(endpoint, params = {}) {
 
 global.user = {
   name: "",
+  Id:undefined,
 }
