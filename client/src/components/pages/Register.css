@@ -15,7 +15,7 @@
     background-image: url("../../public/login/contact2.png");
 }
 
-.Register-Register_botton {
+.Register-Register_button {
     width:  173px;
     height: 63px;
     position: absolute;
@@ -24,7 +24,7 @@
     background-position-x: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url("../../public/login/Register_botton.png");
+    background-image: url("../../public/login/Register_button.png");
 }
 
 .Register-status {
@@ -47,6 +47,7 @@ input[type=text].regi{
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    font-size: 26px;
 }
 
 input[type=password].first{
@@ -58,6 +59,7 @@ input[type=password].first{
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    font-size: 26px;
 }
 
 input[type=password].second{
@@ -69,4 +71,5 @@ input[type=password].second{
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    font-size: 26px;
 }

@@ -29,7 +29,8 @@ const Register = () => {
     else if(pwd =="" || name == "")
     window.alert("不能使用空白用户名/密码");
     else{
-      let url="http://localhost:8080/register?email="+name+"&password="+pwd;
+      var pwdb = window.btoa(pwd);
+      let url="http://10.7.7.230:8080/register?email="+name+"&password="+pwdb;
       await axios.get(url)
         .then((response) => {
           //result=response.data;
@@ -54,7 +55,7 @@ const Register = () => {
         <input type="password" class="first" id="pwd" name="pwd" placeholder="Password.." onChange={handlePwdChange}></input>
         <input type="password" class="second" id="pwd2" name="pwd2" placeholder="Password Again.." onChange={handlePwd2Change}></input>
         <button
-          className="Register-Register_botton"
+          className="Register-Register_button"
           onClick={handleRegister}
         >      </button>
         <div className="Register-status"/>

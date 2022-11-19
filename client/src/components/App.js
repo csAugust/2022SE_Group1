@@ -38,7 +38,7 @@ const App = () => {
           <Mainpage path="/" />
           <TeamUp path="/teamup"/>
           <TeamUpPost path="/teamuppost"/>
-          <Login path="/login" onlogin={loginSwitch}/>
+          <Login path="/login" onlogin={loginSwitch} logstate={login}/>
           <Register path="/register" />
           <Myacc path="/myacc" />
           <NotFound default />

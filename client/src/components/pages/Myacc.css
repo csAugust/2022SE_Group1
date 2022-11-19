@@ -1,125 +1,15 @@
-.MyTeam {
-    font-size: 20px;
-    font-family: SimSun;
-    font-weight: bold;
-    color: white;
-    left: 45%;
+.Myacc-container {
+    width: 1440px;
+    height: 914px;
+}
+
+.Myacc-status {
+    width: 1440px;
+    height: 79px;
     position: absolute;
-    top: 150px;
-}
-
-.easter_egg1 {
-    background: linear-gradient(to right, rebeccapurple,blue, red 50%, white 50%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 200% 100%;
-    background-position: 100%;
-    transition: background-position 400ms ease;
-}
-
-.easter_egg1:hover {
-    background-position: 0 100%;
-}
-
-.col-xl-4 {
-    position: relative;
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-}
-
-.d-flex {
-    display: -ms-flexbox !important;
-    display: flex !important
-}
-
-
-.creator-name {
-    /* Cherry blossom Seoul tour */
-    position: absolute;
-    width: 56px;
-    height: 26px;
-    top: 0px;
-    left: 20px;
-
-
-    color: rgb(0, 0, 0);
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 34px;
-    letter-spacing: 0%;
-    text-align: left;
-
-
-}
-
-.TeamPost {
-    /* Rectangle 11 */
-    position: absolute;
-    width: auto;
-    height: auto;
-    top: 272px;
-    left: 20%;
-    vertical-align: center;
-
-    background:azure ;
-    /* Shadow */
-    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);;
-    border-radius: 12px;
-}
-
-
-.members-num
-.personal-profile
-.content {
-    /* Cherry blossom Seoul tour */
-    position: absolute;
-    width: 241px;
-    height: 26px;
-    color: rgb(0, 0, 0);
-    font-size: 18px;
-    font-weight: 300;
-    line-height: 26px;
-    letter-spacing: 0%;
-    text-align: left;
-
-}
-
-.Comments{
-    display: flex;
-    flex-flow: row;
-    justify-content: flex-start;
-    align-self: center;
-}
-.comment-input {
-    /* input */
-    width: 800px;
-    height: 46px;
-    top: auto;
-    left: 20px;
-    box-sizing: border-box;
-    border: 1px solid rgb(220, 223, 229);
-}
-
-.comment-button {
-    font-size: 18px;
-    color: white;
-    /* Path */
-    border-color: white;
-    width: 153px;
-    height: 46px;
-    top: auto;
-    background: rgb(25, 137, 250);
-    border-radius: 4px;
-}
-
-.join-button {
-    border-color: white;
-    position: absolute;
-    width: 47px;
-    height: 47px;
-    top: 0px;
-    left: 878px;
-    background-image: url("../../public/teamup/joinbutton.png");
+    margin: 835px 0px 0px 0px;
+    padding-right: 0px;
+    background-size: contain;
+    background-repeat: repeat;
+    background-image: url("../../public/mainpage/bottom_info.png");
 }
