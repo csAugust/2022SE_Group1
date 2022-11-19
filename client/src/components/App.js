@@ -11,7 +11,6 @@ import React,{ useState, useEffect } from "react";
 import NavBar from "./modules/NavBar.js";
 import { Router } from "@reach/router";
 import NotFound from "./pages/NotFound.js";
-import Profile from "./pages/Profile.js";
 import Mainpage from "./pages/Mainpage.js";
 import Login from "./pages/Login.js";
 import Register from "./pages/Register.js";
@@ -39,7 +38,6 @@ const App = () => {
           <Mainpage path="/" />
           <TeamUp path="/teamup"/>
           <TeamUpPost path="/teamuppost"/>
-          <Profile path="/profile/" />
           <Login path="/login" onlogin={loginSwitch}/>
           <Register path="/register" />
           <Myacc path="/myacc" />
