@@ -15,7 +15,7 @@
     background-image: url("../../public/login/contact2.png");
 }
 
-.Login-login_botton {
+.Login-login_button {
     width:  173px;
     height: 63px;
     position: absolute;
@@ -24,7 +24,31 @@
     background-position-x: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url("../../public/login/login_botton.png");
+    background-image: url("../../public/login/login_button.png");
+}
+
+.Login-logout_button {
+    width:  173px;
+    height: 63px;
+    position: absolute;
+    margin: 600px 654px 361px 613px;
+    background-position-y: center;
+    background-position-x: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("../../public/login/logout_button.png");
+}
+
+.Login-goto_button {
+    width:  173px;
+    height: 63px;
+    position: absolute;
+    margin: 500px 654px 461px 613px;
+    background-position-y: center;
+    background-position-x: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("../../public/login/goto_myacc.png");
 }
 
 .Login-register {
@@ -72,4 +96,16 @@ input[type=password].log{
     border-radius: 4px;
     box-sizing: border-box;
     font-size: 26px;
+}
+
+.Login-success {
+    width: 525px;
+    height: 123px;
+    position: absolute;
+    margin: 323px 422px 578px 493px;
+    background-position-y: center;
+    background-position-x: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("../../public/login/login_succ.png");
 }

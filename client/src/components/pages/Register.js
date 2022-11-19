@@ -55,7 +55,7 @@ const Register = () => {
         <input type="password" class="first" id="pwd" name="pwd" placeholder="Password.." onChange={handlePwdChange}></input>
         <input type="password" class="second" id="pwd2" name="pwd2" placeholder="Password Again.." onChange={handlePwd2Change}></input>
         <button
-          className="Register-Register_botton"
+          className="Register-Register_button"
           onClick={handleRegister}
         >      </button>
         <div className="Register-status"/>

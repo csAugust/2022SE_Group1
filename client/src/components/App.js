@@ -40,7 +40,7 @@ const App = () => {
           <Mainpage path="/" />
           <Feed path="/feed" />
           <Profile path="/profile/" />
-          <Login path="/login" onlogin={loginSwitch}/>
+          <Login path="/login" onlogin={loginSwitch} logstate={login}/>
           <Register path="/register" />
           <Myacc path="/myacc" />
           <NotFound default />
