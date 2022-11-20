@@ -35,6 +35,8 @@ const Login = (props) => {
 
     if(result[0] == "S"){
       global.user.name = name;
+      global.user.Id = result.match(/\d+/g)[0];
+      //console.log(global.user.Id);
       props.onlogin();
       loginSwitch();
     }

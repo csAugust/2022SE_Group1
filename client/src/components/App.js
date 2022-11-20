@@ -36,7 +36,7 @@ const App = () => {
       <div className="App-container">
         <Router>
           <Mainpage path="/" />
-          <TeamUp path="/teamup"/>
+          <TeamUp path="/teamup" logstate={login}/>
           <TeamUpPost path="/teamuppost"/>
           <Login path="/login" onlogin={loginSwitch} logstate={login}/>
           <Register path="/register" />

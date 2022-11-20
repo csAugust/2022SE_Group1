@@ -5,14 +5,14 @@ import "./Mainpage.css"
 import TeamPost from "../modules/TeamPost";
 import axios from "axios";
 
-const TeamUp =() => {
+const TeamUp =(props) => {
     const [TeamPosts, setTeamPosts] = useState([]);
     let TeamPostNum;
     let TeamPostObj;
     const addNewTeamPost = (TeamPostObj) => {
         TeamPosts.push(TeamPostObj);
-        let reverseTeamPosts=TeamPosts.reverse()
-        setTeamPosts(reverseTeamPosts);
+        TeamPosts.sort(function(a,b){return b.team.id-a.team.id});
+        setTeamPosts([...TeamPosts]);
     }
     const getTeamPost = async (id) => {
         await axios.get("http://localhost:8080/teams/" + id.toString())
@@ -63,12 +63,14 @@ const TeamUp =() => {
                 course_name={TeamPostObj.info.course}
                 content={TeamPostObj.info.content}
                 comments={TeamPostObj.commentList}
+                logstate={props.logstate}
             />
         ));
     } else {
         TeamPostsList = <div>No TeamPost!</div>
     }
 
+    if(props.logstate)
     return (
         <div className={"Mainpage-container"}>
             <div className={"TeamUp-container"}>
@@ -79,6 +81,20 @@ const TeamUp =() => {
                 <br/><br/><br/>
                 <div className={"TeamPost-container"}>
                     {TeamPostsList}
+                    <div className={"BottomLine"}>我是有底线的</div>
+                </div>
+            </div>
+        </div>
+    )
+    else
+    return (
+        <div className={"Mainpage-container"}>
+            <div className={"TeamUp-container"}>
+                <div className="HintInfo">您还没有登录！点击
+                    <Link className="easter_egg1" to="/login">此处去登录</Link>
+                </div>
+                <br/><br/><br/>
+                <div className={"TeamPost-container"}>
                     <div className={"BottomLine"}>我是有底线的</div>
                 </div>
             </div>

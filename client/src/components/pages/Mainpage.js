@@ -3,6 +3,9 @@ import "./Mainpage.css";
 
 
 const Mainpage = () => {
+    useEffect(() => {
+        document.title = "Mainpage";
+    });
     return (
         <div className={"App-container"}>
             <div className="Mainpage-container">

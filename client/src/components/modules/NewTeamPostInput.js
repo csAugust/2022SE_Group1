@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {post} from "../../utilities";
+import "../../utilities";
 import TeamPost from "./TeamPost";
 import {Button, Form, Input, Mentions, message} from "antd";
 import "./NewTeamPostInput.css"
@@ -244,16 +244,15 @@ const NewTeamPostInput = (props) => {
 };
 
 const NewCommentPost = (props) => {
-    const addCommentPost = (value) => {
+    const addCommentPost = async (value) => {
         const body = {
             content: value,
             teamId: props.TeamPostId,
             senderId: global.user.Id,
         }
-        post("http://localhost:8080/comments/", body).then((res) => {
+        await axios.post("http://localhost:8080/comments/", body).then((res) => {
             props.addNewComment(body);
         });
-        axios.post();
     };
     return <NewCommentPostInput defaultText={"New Comment"} onSubmit={addCommentPost}/>;
 };

@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "@reach/router";
 import "./Register.css";
-import { post } from "../../utilities";
 import axios from 'axios';
 
 const Register = () => {
-
+  useEffect(() => {
+    document.title = "Register";
+  });
   const [name, setName] = useState("");
   const [pwd, setPwd] = useState("");
   const [pwd2, setPwd2] = useState("");
@@ -53,7 +53,7 @@ const Register = () => {
 
         <input type="text" class="regi" id="Username" name="Username" placeholder="Username.." onChange={handleNameChange}></input>
         <input type="password" class="first" id="pwd" name="pwd" placeholder="Password.." onChange={handlePwdChange}></input>
-        <input type="password" class="second" id="pwd2" name="pwd2" placeholder="Password Again.." onChange={handlePwd2Change}></input>
+        <input type="password" class="second" id="pwd2" name="pwd2" placeholder="Confirm Password.." onChange={handlePwd2Change}></input>
         <button
           className="Register-Register_button"
           onClick={handleRegister}
