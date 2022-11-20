@@ -40,7 +40,7 @@ const App = () => {
           <TeamUpPost path="/teamuppost"/>
           <Login path="/login" onlogin={loginSwitch} logstate={login}/>
           <Register path="/register" />
-          <Myacc path="/myacc" />
+          <Myacc path="/myacc" logstate={login}/>
           <NotFound default />
         </Router>
       </div>
