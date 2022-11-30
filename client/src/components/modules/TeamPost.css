@@ -41,6 +41,6 @@ TeamPost-container:first-of-type {
 
 .TeamPostUser{
     font-size: 25px;
-    font-family: "Times New Roman";
+    font-family: "Times New Roman",SimSun;
     font-weight: bold;
 }

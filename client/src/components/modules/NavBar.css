@@ -81,6 +81,7 @@
   width: 52px;
   height: 52px;
   margin-left: 100px;
+  margin-right: 80px;
   background-size: contain;
   display: block;
   background-repeat: no-repeat;
@@ -88,5 +89,11 @@
 }
 
 .my_username{
+  height: 100px;
+  position: absolute;
+  top: 8px;
+  left: 91%;
+  font-family: SimSun,"Times New Roman";
+  font-size: 15px;
   white-space: nowrap;
 }

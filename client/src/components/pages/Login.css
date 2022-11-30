@@ -101,7 +101,7 @@ input[type=text].log{
     border: 1px solid #ccc;
     border-radius: 10px;
     box-sizing: border-box;
-    text-align: center;
+    text-align: left;
 }
 
 input[type=password].log{
@@ -116,7 +116,7 @@ input[type=password].log{
     border: 1px solid #ccc;
     border-radius: 10px;
     box-sizing: border-box;
-    text-align: center;
+    text-align: left;
     vertical-align: center;
 }
 

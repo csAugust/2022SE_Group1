@@ -16,11 +16,13 @@ const layout = {
 };
 
 const getCreatorNamebyId = async (Id) => {
+    let name;
     await axios.get("http://localhost:8080/users/" + Id.toString())
         .then((response) => {
-            return response.data.data.user.name;
+            name=response.data.data.user.name;
         })
         .catch(err => alert(err));
+    return name;
 }
 
 const Login = (props) => {
@@ -60,10 +62,11 @@ const Login = (props) => {
             }
         }).then((res) => {
             if (res.data.msg === "") {
-                console.log(res);
                 global.user.Id = res.data.data;
                 getCreatorNamebyId(res.data.data).then((res) => {
+
                         global.user.name = res;
+                        console.log(res);
                         props.onlogin();
                         loginSwitch();
                     }
