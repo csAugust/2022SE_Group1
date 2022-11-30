@@ -19,14 +19,15 @@ import axios from "axios";
  * @param {string} content 内容
  */
 const getCreatorNamebyId = async (Id) => {
-        let temp;
-        await axios.get("http://localhost:8080/users/" + Id.toString())
-            .then((response) => {
-                temp= response.data.data.email;
-            })
-            .catch(err => alert(err));
-        return temp;
-    }
+    let name;
+    await axios.get("http://localhost:8080/users/" + Id.toString())
+        .then((response) => {
+            name= response.data.data.user.name;
+        })
+        .catch(err => alert(err));
+    return name;
+}
+
 const TeamPost = (props) => {
 
     const [comments, setComments] = useState(props.comments);

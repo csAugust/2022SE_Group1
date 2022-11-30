@@ -12,9 +12,9 @@ const Myacc =(props) => {
     let TeamPostObj;
     const addNewTeamPost = (TeamPostObj) => {
         TeamPosts.push(TeamPostObj);
-        TeamPosts.sort(function(a,b){return b.team.id-a.team.id});
         setTeamPosts([...TeamPosts]);
     }
+
     const getTeamPost = async (id) => {
         await axios.get("http://localhost:8080/teams/" + id.toString())
             .then((response) => {
@@ -23,14 +23,16 @@ const Myacc =(props) => {
             .catch(err => alert(err));
         return TeamPostObj;
     };
+
     const getMyTeamPosts = async () => {
-        await axios.get("http://localhost:8080/users/" + global.user.Id.toString())
+        await axios.get("http://localhost:8080/users/" + (global.user.Id).toString())
             .then((response) => {
-                MyTeamPost = response.data.data.teams;
+                MyTeamPost = response.data.data.user.teams;
             })
             .catch(err => alert(err));
         return MyTeamPost;
     };
+
     const setTeamPosts_=async ()=>{
          await getMyTeamPosts().then((res) => {
                 var index = res.match(/\d+(\.\d+)?/g);

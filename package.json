@@ -5,7 +5,10 @@
   "main": "server/server.js",
   "scripts": {
     "hotloader": "webpack serve --config ./webpack.config.js --mode development --port 5000",
-    "start": "nodemon"
+    "start": "nodemon",
+    "test": "jest",
+    "test:config": "jest test_dir --notify --config=config.json ",
+    "test:output": "jest test_dir --outputFile=test.report.json --json"
   },
   "repository": {
     "type": "git",

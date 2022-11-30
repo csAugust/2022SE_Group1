@@ -5,46 +5,21 @@ import "./Mainpage.css"
 import TeamPost from "../modules/TeamPost";
 import axios from "axios";
 
+
 const TeamUp =(props) => {
     const [TeamPosts, setTeamPosts] = useState([]);
-    let TeamPostNum;
-    let TeamPostObj;
-    const addNewTeamPost = (TeamPostObj) => {
-        TeamPosts.push(TeamPostObj);
-        TeamPosts.sort(function(a,b){return b.team.id-a.team.id});
-        setTeamPosts([...TeamPosts]);
-    }
-    const getTeamPost = async (id) => {
-        await axios.get("http://localhost:8080/teams/" + id.toString())
-            .then((response) => {
-                TeamPostObj = response.data.data;
-            })
-            .catch(err => alert(err));
-        return TeamPostObj;
-    };
-    const getTeamPostsNum = async () => {
+
+    const getTeamPosts=async ()=>{
         await axios.get("http://localhost:8080/teams")
-            .then((response) => {
-                TeamPostNum = response.data.data.length;
+            .then((response)=>{
+                setTeamPosts(response.data.data);
             })
-            .catch(err => alert(err));
-        return TeamPostNum;
-    };
-    const setTeamPosts_=async ()=>{
-         await getTeamPostsNum().then((res) => {
-                if (res !== 0) {
-                    for (let i = 1; i <= res; i++) {
-                        getTeamPost(i).then(res => {
-                            addNewTeamPost(res);
-                        })
-                    }
-                }
-            }
-        );
+            .catch(err=>alert(err));
     }
+
     useEffect(() => {
         document.title = "News TeamPost";
-        setTeamPosts_();
+        getTeamPosts();
     }, [])
 
 
@@ -52,11 +27,10 @@ const TeamUp =(props) => {
     const hasTeamPosts = (TeamPosts.length!== 0);
     let TeamPostsList = null;
     if (hasTeamPosts) {
-         console.log(TeamPosts);
-        TeamPostsList = TeamPosts.map((TeamPostObj) => (
+        TeamPostsList = (TeamPosts.reverse()).map((TeamPostObj) => (
             <TeamPost
-                key={`TeamPost_${TeamPostObj.team.id}`}
-                _id={TeamPostObj.team.id}
+                key={`TeamPost_${TeamPostObj.info.id}`}
+                _id={TeamPostObj.info.id}
                 creator_name={TeamPostObj.team.creatorId}//需要根据id拿用户名
                 members_num={TeamPostObj.info.numberLimit}
                 team_name={TeamPostObj.team.name}

@@ -1,11 +1,8 @@
 import React, {useState} from "react";
 import "../../utilities";
-import TeamPost from "./TeamPost";
-import {Button, Form, Input, Mentions, message} from "antd";
+import {Button, Form, Input} from "antd";
 import "./NewTeamPostInput.css"
-import {Link} from "@reach/router";
 import axios from "axios";
-import qs from 'qs'
 
 const layout = {
     labelCol: {
@@ -17,9 +14,7 @@ const layout = {
 };
 
 /**
- * 发布新组队帖子
- * @param {string} defaultText in the placeholder
- *
+ * 发布组队
  */
 const NewTeamPost = (props) => {
     const addTeamPost = (value) => {
@@ -35,6 +30,7 @@ const NewTeamPost = (props) => {
             },
             commentList: null
         }
+        //将新发布的组队同步到数据库
         const postTeamPost = async () => {
             await axios({
                 method: "post",
@@ -51,17 +47,15 @@ const NewTeamPost = (props) => {
                         numberLimit: value.MembersNum,
                         content: value.Content,
                         course: value.CourseName,
-                    },
-                    commentList: null
+                    }
                 }
             }).then((res) => {
-                console.log(res);
+                alert("发布成功！点击继续浏览组队");
             });
             props.addNewTeamPost(body);
         }
         postTeamPost();
     };
-
     return <NewTeamPostInput defaultText={"New TeamPost"} onSubmit={addTeamPost}/>;
 }
 /**
@@ -73,21 +67,27 @@ const NewTeamPost = (props) => {
  */
 const NewCommentPostInput = (props) => {
     const [value, setValue] = useState("");
-    // called whenever the user types in the new TeamPost input box
+
     const handleChange = (event) => {
         setValue(event.target.value);
     };
 
-    // called when the user hits "Submit" for a new TeamPost
     const handleSubmit = (event) => {
-        event.preventDefault();
-        props.onSubmit && props.onSubmit(value);
-        setValue("");
+        if(value==="") {
+            alert("不能发布空白评论！");
+            return false;
+        }
+        else {
+            event.preventDefault();
+            props.onSubmit && props.onSubmit(value);
+            setValue("");
+            return true;
+        }
     };
 
     return (
         <div className="u-flex">
-            <input
+            {""}<input
                 type="text"
                 placeholder={props.defaultText}
                 value={value}
@@ -115,10 +115,10 @@ const NewCommentPostInput = (props) => {
  * @param {({struct}) => void} onSubmit: (function) triggered when this post is submitted, takes {storyId, value} as parameters
  */
 const NewTeamPostInput = (props) => {
-    const [content, setContent] = useState("");
     const [coursename, setCourseName] = useState("");
     const [membersnum, setMembersNum] = useState("");
     const [teamname, setteamname] = useState("");
+    const [Content, setContent] = useState("");
     // called whenever the user types in the new post input box
     const handleCourseNameChange = e => {
         setCourseName(e.target.value);
@@ -138,21 +138,29 @@ const NewTeamPostInput = (props) => {
 
     // called when the user hits "Submit" for a new post
     const handlePostSubmit = (event) => {
-        alert("发布成功！点击继续浏览组队");
-        <Link to={"/tempup"}></Link>
-        event.preventDefault();
-        const return_value = {
-            CourseName: coursename,
-            MembersNum: membersnum,
-            TeamName: teamname,
-            Creator_Name: global.user.name,
-            Content: content,
-        };
-        props.onSubmit && props.onSubmit(return_value);
-        setCourseName("");
-        setMembersNum();
-        setteamname("");
-        setContent("");
+        if (coursename === "") {
+            alert("课程名称不能为空！");
+        } else if (membersnum === "") {
+            alert("组队人数不能为空");
+        } else if (teamname === "") {
+            alert("队伍名称不能为空");
+        } else if (Content==="") {
+            alert("内容不能为空");
+        } else {
+            event.preventDefault();
+            const return_value = {
+                CourseName: coursename,
+                MembersNum: membersnum,
+                TeamName: teamname,
+                Creator_Name: global.user.name,
+                Content: Content,
+            };
+            setCourseName("");
+            setMembersNum("");
+            setteamname("");
+            setContent("");
+            props.onSubmit && props.onSubmit(return_value);
+        }
     };
 
 
@@ -164,9 +172,7 @@ const NewTeamPostInput = (props) => {
                         <Form.Item
                             name="CourseName"
                             label=""
-                            rules={[
-                                {required: true},
-                            ]}>
+                            >
                             课程名称：<Input
                             type="text"
                             placeholder={""}
@@ -177,9 +183,6 @@ const NewTeamPostInput = (props) => {
                         <Form.Item
                             name="TeamName"
                             label=""
-                            rules={[
-                                {required: true},
-                            ]}
                         >
                             队伍名称：<Input
                             type="text"
@@ -192,9 +195,7 @@ const NewTeamPostInput = (props) => {
                         <Form.Item
                             name="MembersNum"
                             label=""
-                            rules={[
-                                {required: true},
-                            ]}>
+                            >
                             组队人数：<Input
                             type="number"
                             min={1}
@@ -209,19 +210,14 @@ const NewTeamPostInput = (props) => {
                         <Form.Item labelCol={{span: 6}} wrapperCol={{span: 16}}
                                    name="Content"
                                    label=""
-                                   rules={[
-                                       {required: true},
-                                   ]}
                         >
-                            <textarea rows="5"
-                                      labelCol={{span: 6}} wrapperCol={{span: 16}}
-                                      type="text"
-                                      placeholder={'写下想说的话...'}
-                                      value={content}
-                                      onChange={handleContentChange}
-                                      className="NewPostContentInput-input">
-
-                            </textarea>
+                            {""}<textarea rows="5"
+                                          labelCol={{span: 6}} wrapperCol={{span: 16}}
+                                          type="text"
+                                          placeholder={'写下想说的话...'}
+                                          value={Content}
+                                          onChange={handleContentChange}
+                                          className="NewPostContentInput-input"/>
                         </Form.Item>
                         <br/>
                         <Form.Item>
@@ -236,10 +232,8 @@ const NewTeamPostInput = (props) => {
                         </Form.Item>
                     </div>
                 </Form>
-
             </div>
         </div>
-
     )
 };
 
