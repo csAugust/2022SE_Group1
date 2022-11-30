@@ -30,7 +30,7 @@ const Register = () => {
     window.alert("不能使用空白用户名/密码");
     else{
       var pwdb = window.btoa(pwd);
-      let url="http://10.7.7.230:8080/register?email="+name+"&password="+pwdb;
+      let url="http://localhost:8080/register?email="+name+"&password="+pwdb;
       await axios.get(url)
         .then((response) => {
           //result=response.data;
