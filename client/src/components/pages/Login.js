@@ -61,10 +61,9 @@ const Login = (props) => {
                 password: pwdb
             }
         }).then((res) => {
-            if (res.data.msg === "") {
+            if (res.data.msg === "登陆成功") {
                 global.user.Id = res.data.data;
                 getCreatorNamebyId(res.data.data).then((res) => {
-
                         global.user.name = res;
                         console.log(res);
                         props.onlogin();
@@ -72,8 +71,9 @@ const Login = (props) => {
                     }
                 );
 
-            } else
-                window.alert("用户名或密码错误!");
+            } 
+            else
+                window.alert(res.data.msg);
         });
 
     };

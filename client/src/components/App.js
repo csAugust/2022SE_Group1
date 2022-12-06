@@ -16,6 +16,7 @@ import Login from "./pages/Login.js";
 import Register from "./pages/Register.js";
 import Myacc from "./pages/Myacc.js";
 import TeamUp from "./pages/TeamUp.js"
+import SearchPost from "./pages/SearchPost.js"
 import "../utilities.css";
 import "./App.css";
 import TeamUpPost from "./pages/TeamUpPost";
@@ -38,6 +39,7 @@ const App = () => {
           <Mainpage path="/" />
           <TeamUp path="/teamup" logstate={login}/>
           <TeamUpPost path="/teamuppost"/>
+          <SearchPost path="/searchpost" logstate={login}/>
           <Login path="/login" onlogin={loginSwitch} logstate={login}/>
           <Register path="/register" />
           <Myacc path="/myacc" logstate={login}/>

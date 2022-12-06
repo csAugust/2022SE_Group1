@@ -41,8 +41,10 @@ const Register = () => {
     event.preventDefault();
     if(pwd != pwd2) 
       window.alert("输入的两次密码不一致");
-    else if(pwd =="" || name == "")
-    window.alert("不能使用空白用户名/密码");
+    else if(pwd.length < 6 || pwd.length > 20)
+      window.alert("密码长度应为6-20");
+    else if(name == "")
+      window.alert("用户名不应为空白");
     else{
       var pwdb = window.btoa(pwd);
       await axios({
@@ -57,14 +59,17 @@ const Register = () => {
                     password:pwdb
                 }
             }).then((response) => {
-          window.alert("注册成功！");
+              if(response.data.code == 200011)
+                window.alert("注册成功！");
+              else
+                window.alert(response.data.msg);
         })
       .catch(err => {window.alert(err);});
     }
-    setEmail("");
-    setName("");
-    setPwd("");
-    setPwd2("");
+    // setEmail("");
+    // setName("");
+    // setPwd("");
+    // setPwd2("");
   };
 
     return (
