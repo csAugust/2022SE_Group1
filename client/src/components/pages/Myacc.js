@@ -12,6 +12,7 @@ const Myacc =(props) => {
     let TeamPostObj;
     const addNewTeamPost = (TeamPostObj) => {
         TeamPosts.push(TeamPostObj);
+        TeamPosts.sort(function(a,b){return b.team.id-a.team.id});
         setTeamPosts([...TeamPosts]);
     }
 

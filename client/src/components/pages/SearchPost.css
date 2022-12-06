@@ -147,7 +147,8 @@ input[type=search].searchpost{
     width:  103px;
     height: 42px;
     position: absolute;
-    margin: 173px 554px 488px 713px;
+    top: 33%;
+    left: 54%;
     background-position-y: center;
     background-position-x: center;
     background-repeat: no-repeat;
