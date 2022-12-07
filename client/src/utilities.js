@@ -61,3 +61,7 @@ export function post(endpoint, params = {}) {
       throw `POST request to ${endpoint} failed with error:\n${error}`;
     });
 }
+
+global.user = {
+  name: "",
+}
