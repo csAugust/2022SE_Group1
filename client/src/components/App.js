@@ -10,17 +10,16 @@
 import React,{ useState, useEffect } from "react";
 import NavBar from "./modules/NavBar.js";
 import { Router } from "@reach/router";
-import Feed from "./pages/Feed.js";
 import NotFound from "./pages/NotFound.js";
-import Profile from "./pages/Profile.js";
 import Mainpage from "./pages/Mainpage.js";
 import Login from "./pages/Login.js";
 import Register from "./pages/Register.js";
 import Myacc from "./pages/Myacc.js";
-
-// to use styles, import the necessary CSS files
+import TeamUp from "./pages/TeamUp.js"
+import SearchPost from "./pages/SearchPost.js"
 import "../utilities.css";
 import "./App.css";
+import TeamUpPost from "./pages/TeamUpPost";
 
 /**
  * Define the "App" component as a function.
@@ -38,11 +37,12 @@ const App = () => {
       <div className="App-container">
         <Router>
           <Mainpage path="/" />
-          <Feed path="/feed" />
-          <Profile path="/profile/" />
-          <Login path="/login" onlogin={loginSwitch}/>
+          <TeamUp path="/teamup" logstate={login}/>
+          <TeamUpPost path="/teamuppost"/>
+          <SearchPost path="/searchpost" logstate={login}/>
+          <Login path="/login" onlogin={loginSwitch} logstate={login}/>
           <Register path="/register" />
-          <Myacc path="/myacc" />
+          <Myacc path="/myacc" logstate={login}/>
           <NotFound default />
         </Router>
       </div>

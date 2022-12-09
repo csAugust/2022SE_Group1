@@ -1,6 +1,7 @@
 .Mainpage-container {
     width: 1440px;
-    height: 914px;
+    height: 10000px;
+    background-size: 100% 100%;
 }
 
 .Mainpage-title {

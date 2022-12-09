@@ -3,11 +3,25 @@
     height: 914px;
 }
 
-.Register-logo {
-    width:  81px;
-    height: 81px;
+.Register-container-inner{
+    background: rgba(240,248,255,0.9);
+    height: 400px;
+    width: 500px;
+    margin: auto;
     position: absolute;
-    margin: 221px 710px 722px 650px;
+    top: 30%;
+    left: 30%;
+    display: flex;
+    vertical-align: center;
+    border-radius: 10px;
+}
+
+.Register-logo {
+    width:  50px;
+    height: 50px;
+    position: absolute;
+    top: 5%;
+    left: 46%;
     background-position-y: center;
     background-position-x: center;
     background-repeat: no-repeat;
@@ -15,16 +29,11 @@
     background-image: url("../../public/login/contact2.png");
 }
 
-.Register-Register_botton {
-    width:  173px;
-    height: 63px;
+.Register-Register_button {
+    width: 120px;
     position: absolute;
-    margin: 665px 654px 296px 613px;
-    background-position-y: center;
-    background-position-x: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-image: url("../../public/login/Register_botton.png");
+    top: 85%;
+    left: 40%;
 }
 
 .Register-status {
@@ -39,34 +48,61 @@
 }
 
 input[type=text].regi{
-    width:  556px;
-    height: 57px;
+    top: 25%;
+    left: 28%;
+    font-family: "Times New Roman", SimSun;
+    font-weight: bold;
+    font-size: 17px;
+    padding: 10px;
     position: absolute;
-    margin: 350px 453px 617px 432px;
     display: inline-block;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 10px;
     box-sizing: border-box;
+    vertical-align: center;
+}
+
+input[type=text].email{
+    top: 40%;
+    left: 28%;
+    font-family: "Times New Roman", SimSun;
+    font-weight: bold;
+    font-size: 17px;
+    padding: 10px;
+    position: absolute;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    vertical-align: center;
 }
 
 input[type=password].first{
-    width:  556px;
-    height: 57px;
+    top: 55%;
+    left: 28%;
+    font-family: "Times New Roman", SimSun;
+    font-weight: bold;
+    font-size: 17px;
+    padding: 10px;
     position: absolute;
-    margin: 455px 453px 512px 432px;
     display: inline-block;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 10px;
     box-sizing: border-box;
+    vertical-align: center;
 }
 
 input[type=password].second{
-    width:  556px;
-    height: 57px;
+    top: 70%;
+    left: 28%;
+    font-family: "Times New Roman", SimSun;
+    font-weight: bold;
+    font-size: 17px;
+    padding: 10px;
     position: absolute;
-    margin: 560px 453px 407px 432px;
     display: inline-block;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 10px;
     box-sizing: border-box;
+    vertical-align: center;
 }

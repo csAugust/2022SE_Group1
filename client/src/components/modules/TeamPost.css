@@ -1,0 +1,46 @@
+TeamPost-container {
+    border: var(--darkgrey) 1px solid;
+    border-radius: var(--xs);
+    margin-top: var(--m);
+}
+
+TeamPost-container:first-of-type {
+    margin-top: var(--l);
+}
+
+.TeamInfo-First{
+    padding: var(--m) var(--l);
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+.TeamInfo-First,
+.TeamInfo-commentSection {
+    padding: var(--m) var(--l);
+}
+
+.TeamPost-comments,
+.TeamPostContent {
+    font-family: "Times New Roman",SimSun;
+    font-size: 15px;
+    margin: var(--s) 0 0;
+}
+.TeamInfo-First,
+.TeamInfo-commentSection {
+    background: rgba(240,248,255,0.9);
+    border-top: 1px solid var(--darkgrey);
+}
+.TeamInfo-commentSection {
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+
+.TeamPost-commentBody {
+    margin: 0 0 var(--s);
+}
+
+.TeamPostUser{
+    font-size: 25px;
+    font-family: "Times New Roman",SimSun;
+    font-weight: bold;
+}

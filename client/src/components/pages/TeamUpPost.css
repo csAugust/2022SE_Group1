@@ -1,0 +1,20 @@
+.TeamPost-container {
+    width: 80%;
+    height: auto;
+    position: absolute;
+    left: 7.5%;
+    margin: 150px 30px 0px 30px;
+}
+
+.BottomLine{
+    padding: 0 20px 0;
+    margin: 20px 0;
+    line-height: 1px;
+    border-left: 400px solid white;
+    border-right: 400px solid white;
+    text-align: center;
+    font-family: SimSun;
+    font-weight: bold;
+    color: white;
+    font-size: 15px;
+}

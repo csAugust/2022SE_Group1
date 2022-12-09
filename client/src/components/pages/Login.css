@@ -1,13 +1,29 @@
+p {
+    display: inline
+}
 .Login-container {
     width: 1440px;
     height: 914px;
 }
+.Login-container-inner{
+    background: rgba(240,248,255,0.9);
+    height: 300px;
+    width: 500px;
+    margin: auto;
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    display: flex;
+    vertical-align: center;
+    border-radius: 10px;
+}
 
 .Login-logo {
-    width:  81px;
-    height: 81px;
+    width:  50px;
+    height: 50px;
     position: absolute;
-    margin: 221px 710px 722px 650px;
+    top: 10%;
+    left: 46%;
     background-position-y: center;
     background-position-x: center;
     background-repeat: no-repeat;
@@ -15,28 +31,51 @@
     background-image: url("../../public/login/contact2.png");
 }
 
-.Login-login_botton {
+.Login-login_button {
+    width: 120px;
+    position: absolute;
+    top: 70%;
+    left: 40%;
+}
+
+.login-suscess{
+    position: absolute;
+    top:35%;
+    left:44%;
+}
+
+.Myacc_button{
+    position: absolute;
+    top:50%;
+    left:39%;
+    width: 120px;
+}
+
+.Login-logout_button {
+    position: absolute;
+    left: 39%;
+}
+
+.Login-goto_button {
     width:  173px;
     height: 63px;
     position: absolute;
-    margin: 560px 654px 401px 613px;
+    margin: 500px 654px 461px 613px;
     background-position-y: center;
     background-position-x: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url("../../public/login/login_botton.png");
+    background-image: url("../../public/login/goto_myacc.png");
 }
 
 .Login-register {
+    color: gray;
+    font-size: smaller;
+    top: 85%;
+    left: 10%;
     width:  406px;
     height: 43px;
     position: absolute;
-    margin: 647px 530px 334px 504px;
-    background-position-y: center;
-    background-position-x: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-image: url("../../public/login/register.png");
 }
 
 .Login-status {
@@ -51,23 +90,44 @@
 }
 
 input[type=text].log{
-    width:  556px;
-    height: 57px;
+    top: 30%;
+    left: 28%;
+    font-family: "Times New Roman", SimSun;
+    font-weight: bold;
+    font-size: 17px;
+    padding: 10px;
     position: absolute;
-    margin: 350px 453px 617px 432px;
     display: inline-block;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 10px;
     box-sizing: border-box;
+    text-align: left;
 }
 
 input[type=password].log{
-    width:  556px;
-    height: 57px;
+    top: 50%;
+    left: 28%;
+    font-family: "Times New Roman", SimSun;
+    font-weight: bold;
+    font-size: 17px;
+    padding: 10px;
     position: absolute;
-    margin: 455px 453px 512px 432px;
     display: inline-block;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 10px;
     box-sizing: border-box;
+    text-align: left;
+    vertical-align: center;
+}
+
+.Login-success {
+    width: 525px;
+    height: 123px;
+    position: absolute;
+    margin: 323px 422px 578px 493px;
+    background-position-y: center;
+    background-position-x: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("../../public/login/login_succ.png");
 }

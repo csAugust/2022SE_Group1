@@ -1,3 +1,7 @@
+.SearchPost-container {
+
+}
+
 .HintInfo {
     font-size: 20px;
     font-family: SimSun;
@@ -122,4 +126,32 @@
     top: 0px;
     left: 878px;
     background-image: url("../../public/teamup/joinbutton.png");
+}
+
+input[type=search].searchpost{
+    top: 33%;
+    left: 34%;
+    font-family: "Times New Roman", SimSun;
+    font-weight: bold;
+    font-size: 17px;
+    padding: 10px;
+    position: absolute;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.Search-searchbutton {
+    width:  103px;
+    height: 42px;
+    position: absolute;
+    top: 33%;
+    left: 54%;
+    background-position-y: center;
+    background-position-x: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("../../public/teamup/searchbutton.png");
 }

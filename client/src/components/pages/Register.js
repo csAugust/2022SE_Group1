@@ -1,17 +1,32 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "@reach/router";
 import "./Register.css";
-import { post } from "../../utilities";
+import "./Login.css";
+import "../modules/NewTeamPostInput.css"
 import axios from 'axios';
-
+import {Button, Form} from "antd";
+import {Link} from "@reach/router";
+const layout = {
+    labelCol: {
+        span: 8,
+    },
+    wrapperCol: {
+        span: 16,
+    },
+};
 const Register = () => {
-
+  useEffect(() => {
+    document.title = "Register";
+  });
   const [name, setName] = useState("");
   const [pwd, setPwd] = useState("");
   const [pwd2, setPwd2] = useState("");
-
+  const [email, setEmail] = useState("");
   const handleNameChange = (event) => {
     setName(event.target.value);
+  };
+
+  const handleEmailChange= (event) => {
+    setEmail(event.target.value);
   };
 
   const handlePwdChange = (event) => {
@@ -26,38 +41,76 @@ const Register = () => {
     event.preventDefault();
     if(pwd != pwd2) 
       window.alert("输入的两次密码不一致");
-    else if(pwd =="" || name == "")
-    window.alert("不能使用空白用户名/密码");
+    else if(pwd.length < 6 || pwd.length > 20)
+      window.alert("密码长度应为6-20");
+    else if(name == "")
+      window.alert("用户名不应为空白");
     else{
-      let url="http://10.7.7.230:8080/register?email="+name+"&password="+pwd;
-      await axios.get(url)
-        .then((response) => {
-          //result=response.data;
+      var pwdb = window.btoa(pwd);
+      await axios({
+                method: "post",
+                url: "http://localhost:8080/users",//请求接口
+                headers: {
+                    'Content-Type': 'application/json;charset=UTF-8'
+                },
+                data: {
+                    name:name,
+                    email:email,
+                    password:pwdb
+                }
+            }).then((response) => {
+              if(response.data.code == 200011)
+                window.alert("注册成功！");
+              else
+                window.alert(response.data.msg);
         })
       .catch(err => {window.alert(err);});
-      window.alert("注册成功");
-      // const body = { username: name , password: pwd};
-      // post("/api/register", body).then((answer) => {
-      //   if(answer.result == "OK")
-      //     window.location.replace("/myacc");
-      //   else
-      //     window.alert("该用户已存在");
-      // });
     }
+    // setEmail("");
+    // setName("");
+    // setPwd("");
+    // setPwd2("");
   };
 
     return (
       <div className="Register-container">
-        <div className="Register-logo"/>
-
-        <input type="text" class="regi" id="Username" name="Username" placeholder="Username.." onChange={handleNameChange}></input>
-        <input type="password" class="first" id="pwd" name="pwd" placeholder="Password.." onChange={handlePwdChange}></input>
-        <input type="password" class="second" id="pwd2" name="pwd2" placeholder="Password Again.." onChange={handlePwd2Change}></input>
-        <button
-          className="Register-Register_botton"
-          onClick={handleRegister}
-        >      </button>
-        <div className="Register-status"/>
+        <div className="Login-container">
+                <div className={"Register-container-inner"}>
+                    <div className={"NewTeamPostInput"}>
+                        <Form {...layout}>
+                            <div className={"TeamPostFormItem"}>
+                                <Form.Item>
+                                    <div className="Register-logo"/>
+                                </Form.Item>
+                                <Form.Item>
+                                  <input type="text" className="regi" id="Username" name="UserName" placeholder="用户名"
+                                         onChange={handleNameChange}></input>
+                                </Form.Item><br/>
+                                <Form.Item>
+                                  <input type="text" className="email" id="Email" name="Email" placeholder="邮箱"
+                                         onChange={handleEmailChange}></input>
+                                </Form.Item><br/>
+                                <Form.Item>
+                                    <input type="password" className="first" id="pwd" name="pwd"
+                                           placeholder="密码" onChange={handlePwdChange}></input>
+                                </Form.Item><br/>
+                                <Form.Item>
+                                  <input type="password" className="second" id="pwd2" name="pwd2"
+                                         placeholder="请再次输入密码" onChange={handlePwd2Change}></input>
+                                </Form.Item>
+                                <Form.Item>
+                                    <Button
+                                        type={"button"}
+                                        className="NewTeamPostInput NewPostInput-button u-pointer Register-Register_button"
+                                        onClick={handleRegister}
+                                    >    注册    </Button>
+                                </Form.Item>
+                            </div>
+                        </Form>
+                    </div>
+                </div>
+                <div className="Register-status"/>
+            </div>
       </div>
     );
   };
