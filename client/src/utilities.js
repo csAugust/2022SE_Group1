@@ -1,13 +1,3 @@
-/**
- * Utility functions to make API requests.
- * By importing this file, you can use the provided get and post functions.
- * You shouldn't need to modify this file, but if you want to learn more
- * about how these functions work, google search "Fetch API"
- *
- * These functions return promises, which means you should use ".then" on them.
- * e.g. get('/api/foo', { bar: 0 }).then(res => console.log(res))
- */
-
 // ex: formatParams({ some_key: "some_value", a: "b"}) => "some_key=some_value&a=b"
 function formatParams(params) {
   // iterate of all the keys of params as an array,
@@ -62,6 +52,7 @@ export function post(endpoint, params = {}) {
     });
 }
 
+//全局用户信息
 global.user = {
   name: "",
   Id:undefined,
